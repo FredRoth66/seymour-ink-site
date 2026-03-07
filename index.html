@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Seymour.Ink — Local Custom Merch</title>
+  <title>Seymour.Ink</title>
   <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Splash screen overrides */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .splash-container {
+      height: calc(100% - 120px); /* subtract footer height */
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      /* Replace with your heavy graphic */
+      background-image: url('/images/splash-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      padding: 40px;
+    }
+
+    .splash-logo {
+      max-width: 600px; /* big logo */
+      width: 80%;
+      margin-bottom: 40px;
+    }
+
+    .splash-text {
+      max-width: 900px;
+      font-size: 2.4rem;
+      line-height: 1.4;
+      color: #fff; /* adjust depending on your background */
+      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    /* Footer stays normal size */
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <a href="/" class="logo-link">
-    <img src="/images/seymour-ink-logo.png" alt="Seymour.Ink" class="site-logo">
-  </a>
-  <nav class="site-nav">
-    <a href="/">About</a>
-    <a href="/search">Find Your School</a>
-    <a href="/add-team">Add Your Team</a>
-    <a href="/cart">Cart</a>
-  </nav>
-</header>
+<div class="splash-container">
+  <img src="/images/seymour-ink-logo.png" class="splash-logo" alt="Seymour.Ink">
 
-<main class="main-content">
-  <h1>Seymour.Ink</h1>
-  <p>
-    Seymour.Ink is a small, local merch studio in Seymour, Indiana, focused on
-    high‑quality, small‑batch items for schools and teams.
-  </p>
-  <p>
-    We combine 3D printing, UV printing, and print‑on‑demand partners to create
-    custom keychains, jewelry, shirts, and more—built around your team’s logo.
-  </p>
-  <p>
-    Most people find us through QR codes on products that link directly to a
-    specific team’s merch page. If you’re just exploring:
-  </p>
-  <ul>
-    <li><a href="/search">Search for your school or team</a></li>
-    <li><a href="/add-team">Start a new logo and merch line</a></li>
-  </ul>
-</main>
+  <div class="splash-text">
+    Seymour.Ink is a small, local merch studio in Seymour, Indiana.  
+    We create custom, small‑batch items for schools and teams using  
+    3D printing, UV printing, and print‑on‑demand partners.  
+    Every item is made with care, built around your team’s identity.
+  </div>
+</div>
 
 <footer class="site-footer">
   <p>© 2026 Seymour.Ink — Seymour, Indiana</p>
