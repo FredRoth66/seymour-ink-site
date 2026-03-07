@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Your Team — Seymour.Ink</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/products.js"></script>
+  <script src="/logo-config.js"></script>
+  <script type="module" src="/pricing.js"></script>
+  <script type="module" src="/cart.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="logo-link">
+    <img src="/images/seymour-ink-logo.png" alt="Seymour.Ink" class="site-logo">
+  </a>
+  <nav class="site-nav">
+    <a href="/">About</a>
+    <a href="/search">Find Your School</a>
+    <a href="/add-team">Add Your Team</a>
+    <a href="/cart">Cart</a>
+  </nav>
+</header>
+
+<main class="main-content">
+  <h1>Add Your Team</h1>
+  <p>
+    Use this form to start a new logo and merch line. You’ll be charged a
+    one‑time $50 design fee per logo, plus the cost of the first item you order.
+  </p>
+
+  <form onsubmit="handleAddTeam(event)">
+    <label>School Name</label>
+    <input type="text" id="schoolName" required>
+
+    <label>Team / Sport Name</label>
+    <input type="text" id="teamName" required>
+
+    <label>Contact Name</label>
+    <input type="text" id="contactName" required>
+
+    <label>Contact Email</label>
+    <input type="email" id="contactEmail" required>
+
+    <label>Logo File (placeholder)</label>
+    <input type="file" id="logoFile" accept="image/*">
+
+    <p class="form-note">
+      File upload is a placeholder here. For now, you can email your logo to
+      hello@seymour.ink after checkout, or we can wire this to a backend later.
+    </p>
+
+    <label>First Item You Want Produced</label>
+    <select id="firstItem" required>
+      <option value="keychain">Logo Keychain</option>
+      <option value="earrings">Logo Earrings</option>
+      <option value="tshirt">Team T‑Shirt</option>
+    </select>
+
+    <label>Fundraising Level</label>
+    <select id="fundraisingTier" required>
+      <option value="standard">Standard (balanced price)</option>
+      <option value="enhanced">Enhanced (more earnings, slightly higher price)</option>
+      <option value="premium">Premium (max earnings, highest price)</option>
+    </select>
+
+    <p class="form-note">
+      At checkout, you’ll pay the one‑time $50 design fee plus the cost of the
+      first item. A designer will contact you to confirm the logo and colors
+      before anything is produced.
+    </p>
+
+    <button type="submit">Add Design Fee + First Item to Cart</button>
+  </form>
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 Seymour.Ink — Seymour, Indiana</p>
+  <nav class="footer-nav">
+    <a href="/search">Find Your School</a>
+    <a href="/add-team">Add Your Team</a>
+    <a href="mailto:hello@seymour.ink">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  function handleAddTeam(e) {
+    e.preventDefault();
+
+    const school = document.getElementById("schoolName").value.trim();
+    const team = document.getElementById("teamName").value.trim();
+    const firstItem = document.getElementById("firstItem").value;
+    const tier = document.getElementById("fundraisingTier").value;
+
+    if (!school || !team) {
+      alert("Please fill in school and team.");
+      return;
+    }
+
+    const schoolSlug = school.toLowerCase().replace(/\s+/g, "-");
+    const teamSlug = team.toLowerCase().replace(/\s+/g, "-");
+    const logoId = schoolSlug + "-" + teamSlug + "-primary-0001";
+
+    // Design fee pseudo-product
+    const designFeeProductId = "design-fee-" + logoId;
+    window.PRODUCTS[designFeeProductId] = {
+      id: designFeeProductId,
+      name: "Logo Design Fee",
+      basePrice: 5000,
+      image: "",
+      type: "service"
+    };
+
+    // For now, just log tier; later this goes into DB / logo-config
+    console.log("New logo:", logoId, "tier:", tier);
+
+    addToCart(designFeeProductId, school + " " + team, logoId, true);
+    addToCart(firstItem, school + " " + team, logoId, false);
+
+    alert("Design fee and first item added to cart. You can now checkout.");
+    window.location = "/cart";
+  }
+</script>
+
+</body>
+</html>

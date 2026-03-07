@@ -1,20 +1,33 @@
+// products.js
+// Base prices only; final prices are computed via pricing.js
+
 window.PRODUCTS = {
+  keychain: {
+    id: "keychain",
+    name: "Logo Keychain",
+    basePrice: 1200, // $12.00
+    image: "/images/keychain.png",
+    type: "inhouse"
+  },
   earrings: {
     id: "earrings",
     name: "Logo Earrings",
-    price: 1500, // cents
-    image: "/images/earrings.png"
+    basePrice: 1500, // $15.00
+    image: "/images/earrings.png",
+    type: "inhouse"
   },
   necklace: {
     id: "necklace",
     name: "Logo Necklace",
-    price: 2000,
-    image: "/images/necklace.png"
+    basePrice: 2000, // $20.00
+    image: "/images/necklace.png",
+    type: "inhouse"
   },
-  keychain: {
-    id: "keychain",
-    name: "Logo Keychain",
-    price: 1200,
-    image: "/images/keychain.png"
+  tshirt: {
+    id: "tshirt",
+    name: "Team T‑Shirt",
+    basePrice: 2000, // $20.00 base before buffer/tier/discount
+    image: "/images/tshirt.png",
+    type: "pod"
   }
 };

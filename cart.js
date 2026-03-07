@@ -1,3 +1,6 @@
+// cart.js
+import { computePrice } from "/pricing.js";
+
 function getCart() {
   return JSON.parse(localStorage.getItem("cart") || "[]");
 }
@@ -6,11 +9,20 @@ function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function addToCart(productId, school) {
+// productId: from PRODUCTS
+// team: human-readable (e.g., "Seymour High Football")
+// logoId: your internal ID (e.g., "seymour-high-football-primary-0001")
+// designFee: boolean
+function addToCart(productId, team, logoId, designFee = false) {
   const cart = getCart();
-  cart.push({ productId, school });
+  cart.push({ productId, team, logoId, designFee });
   saveCart(cart);
   alert("Added to cart!");
+}
+
+function getLogoConfig(logoId) {
+  const cfg = window.LOGO_CONFIG && window.LOGO_CONFIG[logoId];
+  return cfg || { tier: "standard", victoryDiscount: 0 };
 }
 
 function renderCart() {
@@ -30,15 +42,37 @@ function renderCart() {
   }
 
   cart.forEach((item, index) => {
-    const product = window.PRODUCTS[item.productId];
+    let product = window.PRODUCTS[item.productId];
+
+    // Design fee pseudo-product
+    if (!product && item.productId.startsWith("design-fee-")) {
+      product = {
+        id: item.productId,
+        name: "Logo Design Fee",
+        basePrice: 5000
+      };
+    }
+
     if (!product) return;
 
-    total += product.price;
+    let priceCents = product.basePrice || 0;
+
+    if (!item.designFee) {
+      const cfg = getLogoConfig(item.logoId);
+      priceCents = computePrice(product.basePrice, cfg.tier, cfg.victoryDiscount);
+    }
+
+    total += priceCents;
 
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
-      <p><strong>${product.name}</strong> — $${(product.price / 100).toFixed(2)} <br><span style="font-size:0.85rem;color:#555;">School: ${item.school}</span></p>
+      <p><strong>${product.name}</strong> — $${(priceCents / 100).toFixed(2)}</p>
+      <p style="font-size:0.85rem;color:#555;">
+        Team: ${item.team || "N/A"}<br>
+        Logo ID: ${item.logoId || "N/A"}<br>
+        ${item.designFee ? "Includes design fee" : ""}
+      </p>
       <button onclick="removeItem(${index})">Remove</button>
     `;
     container.appendChild(div);
@@ -74,3 +108,8 @@ async function checkout() {
     alert("Checkout error. Please try again.");
   }
 }
+
+window.renderCart = renderCart;
+window.removeItem = removeItem;
+window.checkout = checkout;
+window.addToCart = addToCart;
