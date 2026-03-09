@@ -20,6 +20,13 @@
       margin-bottom: 20px;
     }
 
+    .school-logo {
+      width: 260px;
+      max-width: 80%;
+      margin: 0 auto 30px auto;
+      display: block;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -58,25 +65,23 @@
 
 <body>
 
+  <!-- Seymour.Ink brand header -->
   <header>
     <img src="/images/seymour-ink-logo.png" alt="Seymour.Ink Logo" />
     <h1>Columbus Power Elite</h1>
   </header>
 
+  <!-- School’s main logo (reference only, not a link) -->
+  <img src="logo-main.png" alt="Columbus Power Elite Logo" class="school-logo" />
+
+  <!-- Team logos section -->
   <div class="grid">
 
-    <!-- Cheer Program -->
-    <a class="card" href="cheer/index.html">
-      <img src="logo-main.png" alt="Cheer Logo" />
-      <h3>Cheer Program</h3>
-      <p>View cheer apparel and merch</p>
-    </a>
-
-    <!-- Team Logos / Products -->
-    <a class="card" href="logos/columbus-power-elite-0001/products/">
+    <!-- Only one team logo exists -->
+    <a class="card" href="/schools/columbus-power-elite/logos/columbus-power-elite-0001/products/">
       <img src="logos/columbus-power-elite-0001/logo.webp" alt="Team Logo" />
-      <h3>Team Logos</h3>
-      <p>View products for this logo</p>
+      <h3>Team Logo</h3>
+      <p>View merch for this logo</p>
     </a>
 
   </div>
