@@ -1,112 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Logo Use & Merch Permission — Seymour.Ink</title>
+  <meta charset="UTF-8">
+  <title>Logo Permissions – Seymour.Ink</title>
   <link rel="stylesheet" href="/styles.css">
+  <style>
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding-top: 40px;
+    }
+
+    .card {
+      background: #fff;
+      border: 2px solid #000;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      margin-bottom: 8px;
+    }
+
+    .actions {
+      margin-top: 25px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #444;
+      margin-top: 10px;
+    }
+  </style>
 </head>
-<body onload="loadLogoId()">
+<body>
 
-<header class="site-header">
-  <a href="/" class="logo-link">
-    <img src="/images/seymour-ink-logo.png" alt="Seymour.Ink" class="site-logo">
-  </a>
-  <nav class="site-nav">
-    <a href="/">About</a>
-    <a href="/search">Find Your School</a>
-    <a href="/add-team">Add Your Team</a>
-    <a href="/cart">Cart</a>
-  </nav>
-</header>
-
-<main class="main-content">
-  <h1>Logo Use & Merch Permission</h1>
-  <p>
-    Before we ship your order, we need your confirmation on how we may use your logo.
-  </p>
-
-  <p><strong>Logo ID:</strong> <span id="logoIdDisplay">Loading…</span></p>
-
-  <form onsubmit="handlePermissionSubmit(event)">
-    <h2>Required Permission</h2>
-
-    <label>
-      <input type="checkbox" id="permProduce" required>
-      I authorize Seymour.Ink / FAR Design to reproduce my submitted logo for the
-      specific merchandise item(s) included in my order.
-    </label>
-
-    <h2>Optional Permissions</h2>
-
-    <label>
-      <input type="checkbox" id="permMoreMerch">
-      I authorize Seymour.Ink / FAR Design to create additional merchandise items
-      using this logo (keychains, jewelry, shirts, hats, mugs, etc.).
-    </label>
-
-    <label>
-      <input type="checkbox" id="permColorVars">
-      I authorize Seymour.Ink / FAR Design to create color variations of this logo
-      for production and product expansion. The design itself will not be altered
-      without additional approval.
-    </label>
-
-    <label>
-      <input type="checkbox" id="permMarket">
-      I authorize Seymour.Ink / FAR Design to market and sell merchandise using
-      this logo, including product photos, mockups, and QR codes.
-    </label>
-
-    <label>
-      <input type="checkbox" id="permAccount">
-      I authorize Seymour.Ink / FAR Design to create an internal account for my
-      school/team to track sales and store credit earnings for this logo.
-    </label>
-
-    <h2>Contact Details</h2>
-
-    <label>School / Team</label>
-    <input type="text" id="schoolTeam" required>
-
-    <label>Your Name</label>
-    <input type="text" id="repName" required>
-
-    <label>Your Role (e.g., PTO, coach, teacher)</label>
-    <input type="text" id="repRole">
-
-    <label>Your Email</label>
-    <input type="email" id="repEmail" required>
-
-    <button type="submit">Submit Permissions</button>
-
-    <p class="form-note">
-      This form is a placeholder. We can wire it to email or a backend to store
-      permissions and earnings data.
+  <div class="page-wrap">
+    <h1>Logo Permissions</h1>
+    <p>
+      Before we set up your merch, please review and approve the terms below.
+      Everything is written in plain language so you know exactly what’s happening.
     </p>
-  </form>
-</main>
 
-<footer class="site-footer">
-  <p>© 2026 Seymour.Ink — Seymour, Indiana</p>
-  <nav class="footer-nav">
-    <a href="/search">Find Your School</a>
-    <a href="/add-team">Add Your Team</a>
-    <a href="mailto:hello@seymour.ink">Contact</a>
-  </nav>
-</footer>
+    <div class="card">
 
-<script>
-  function loadLogoId() {
-    const params = new URLSearchParams(window.location.search);
-    const logoId = params.get("logo_id") || "Not specified";
-    document.getElementById("logoIdDisplay").innerText = logoId;
-  }
+      <div class="section">
+        <h3>1. What you’re allowing us to do</h3>
+        <p>
+          You’re giving Seymour.Ink permission to use your uploaded logo on physical
+          merchandise that we produce and sell on your behalf.
+        </p>
+      </div>
 
-  function handlePermissionSubmit(e) {
-    e.preventDefault();
-    alert("Permissions recorded (placeholder). We’ll wire this to storage later.");
-    window.location = "/";
-  }
-</script>
+      <div class="section">
+        <h3>2. What we will NOT do</h3>
+        <ul style="margin-left:20px; list-style:disc;">
+          <li>We will not alter your logo without approval.</li>
+          <li>We will not sell your logo to anyone else.</li>
+          <li>We will not use your logo outside your merch collection.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>3. What you earn</h3>
+        <p>
+          You receive a percentage of every sale that uses your logo.  
+          We track this automatically by logo ID so every design is accounted for.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>4. What we handle</h3>
+        <ul style="margin-left:20px; list-style:disc;">
+          <li>Product setup and design placement (done by hand for accuracy)</li>
+          <li>Manufacturing and fulfillment</li>
+          <li>Customer service</li>
+          <li>Payment processing</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>5. Your confirmation</h3>
+        <p>
+          By continuing, you confirm you have the rights to use this logo and
+          authorize Seymour.Ink to produce merchandise with it.
+        </p>
+      </div>
+
+      <div class="actions">
+        <button id="agree-btn">I Agree</button>
+        <span class="note">We’ll set up your logo folder next.</span>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px;">
+      <a href="/add-team/">← Back</a>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('agree-btn').addEventListener('click', function () {
+      // In the future, this will trigger folder creation + data storage.
+      // For now, we simulate and move forward.
+
+      alert("Thanks! Your logo will be set up next.");
+      window.location.href = "/thank-you/"; // placeholder
+    });
+  </script>
 
 </body>
 </html>
