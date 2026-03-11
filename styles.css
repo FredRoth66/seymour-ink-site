@@ -1,194 +1,185 @@
 /* --------------------------------------------------
-   GLOBAL RESET
+   GLOBAL BASE
 -------------------------------------------------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: Arial, sans-serif;
-  background-image: url('/images/backgrounds/paper.webp'); /* your texture */
+body.white-bg {
+  background-image: url('/images/backgrounds/background-texture.webp');
   background-repeat: repeat;
   background-size: 512px 512px;
-  color: #222;
-  padding: 20px;
+  color: #111;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-
-
-/* --------------------------------------------------
-   HEADINGS & TEXT
--------------------------------------------------- */
 h1, h2, h3 {
-  margin-bottom: 15px;
-  font-weight: 700;
+  margin: 20px 0 10px;
+  font-weight: 600;
 }
 
-p {
-  margin-bottom: 15px;
+p, li, label {
   line-height: 1.5;
+  font-size: 16px;
 }
 
+a {
+  color: #111;
+  text-decoration: underline;
+}
 
+a:hover {
+  opacity: 0.7;
+}
 
 /* --------------------------------------------------
-   CART ICON (your red wagon)
+   HERO / HOMEPAGE
 -------------------------------------------------- */
-.cart-icon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
 
-.cart-icon img {
-  width: 40px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-.cart-icon img:hover {
-  transform: scale(1.1);
-}
-
-
-
-/* --------------------------------------------------
-   PRODUCT GRID (merch index)
--------------------------------------------------- */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.product-card {
-  background: #fff;
-  border: 2px solid #000;
-  padding: 15px;
+.hero {
   text-align: center;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  padding: 40px 20px;
 }
 
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 0 #000;
-}
-
-.product-card img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-
-
-/* --------------------------------------------------
-   PRODUCT DETAIL PAGE
--------------------------------------------------- */
-.product-gallery {
-  max-width: 500px;
-  margin-bottom: 25px;
-}
-
-.main-image {
-  width: 100%;
-  border: 2px solid #000;
-  margin-bottom: 10px;
-}
-
-.thumbs {
-  display: flex;
-  gap: 10px;
-}
-
-.thumbs img {
-  width: 80px;
-  height: auto;
-  border: 2px solid #000;
-  cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-.thumbs img:hover {
-  transform: scale(1.1);
-}
-
-
-
-/* --------------------------------------------------
-   PRODUCT OPTIONS
--------------------------------------------------- */
-.product-options {
+.hero-img {
+  max-width: 200px;
   margin-bottom: 20px;
 }
 
-.product-options label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+.tagline {
+  font-size: 20px;
+  margin-top: 10px;
 }
 
-.product-options select,
-.product-options input[type="number"] {
-  padding: 8px;
-  width: 120px;
-  border: 2px solid #000;
-  margin-bottom: 15px;
+.sub {
+  font-size: 14px;
+  opacity: 0.7;
 }
-
-
 
 /* --------------------------------------------------
-   BUTTONS
+   PAGE CONTAINERS
 -------------------------------------------------- */
+
+.consent-container,
+.contract,
+.invoice-container,
+.product-container,
+.standard-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+/* --------------------------------------------------
+   FORMS
+-------------------------------------------------- */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
 button,
-.add-to-cart {
-  background: #000;
+.pay-button {
+  background: #111;
   color: #fff;
   padding: 12px 20px;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.15s ease;
-}
-
-button:hover,
-.add-to-cart:hover {
-  background: #444;
-}
-
-
-
-/* --------------------------------------------------
-   CART PAGE
--------------------------------------------------- */
-.cart-item {
-  background: #fff;
-  border: 2px solid #000;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-.cart-item button {
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
   margin-top: 10px;
 }
 
-
-
-/* --------------------------------------------------
-   LINKS
--------------------------------------------------- */
-a {
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
+button:hover,
+.pay-button:hover {
+  opacity: 0.85;
 }
 
-a:hover {
-  text-decoration: underline;
+/* --------------------------------------------------
+   INVOICE TABLE
+-------------------------------------------------- */
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.invoice-table th {
+  background: rgba(0,0,0,0.05);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------
+   PRODUCT GALLERY (main.webp, 1.webp, 2.webp)
+-------------------------------------------------- */
+
+.product-gallery {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.product-gallery .main-image {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.product-gallery .thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.product-gallery .thumbs img {
+  width: 80px;
+  height: auto;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.product-gallery .thumbs img:hover {
+  opacity: 0.8;
+}
+
+/* --------------------------------------------------
+   UTILITY
+-------------------------------------------------- */
+
+.small {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
