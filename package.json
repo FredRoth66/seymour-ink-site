@@ -1,0 +1,9 @@
+{
+  "name": "seymour-ink-site",
+  "version": "1.0.0",
+  "description": "Static site for Seymour.Ink",
+  "scripts": {
+    "build": "",
+    "start": ""
+  }
+}
