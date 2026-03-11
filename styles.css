@@ -119,9 +119,12 @@ body.home .site-header {
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  border-radius: 50%;
+  border-radius: 0;
   padding: 10px;
   font-size: 14px;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
 .ink-button:hover {
