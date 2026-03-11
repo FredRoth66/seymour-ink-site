@@ -1,185 +1,69 @@
-/* --------------------------------------------------
-   GLOBAL BASE
--------------------------------------------------- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seymour.Ink – Custom Printing & Creative Production</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles.css">
+</head>
 
-body.white-bg {
-  background-image: url('/images/backgrounds/background-texture.webp');
-  background-repeat: repeat;
-  background-size: 512px 512px;
-  color: #111;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+<body class="white-bg home">
 
-h1, h2, h3 {
-  margin: 20px 0 10px;
-  font-weight: 600;
-}
+<!-- HOMEPAGE HERO (no standard logo here) -->
+<header class="hero">
+  <img src="/images/hero-storefront.webp" class="hero-img" alt="Seymour.Ink storefront">
+  <h1>Seymour.Ink</h1>
+  <p class="tagline">Custom Printing & Creative Production</p>
+  <p class="sub">Not a Tattoo Parlor</p>
+</header>
 
-p, li, label {
-  line-height: 1.5;
-  font-size: 16px;
-}
+<main class="standard-container">
 
-a {
-  color: #111;
-  text-decoration: underline;
-}
+  <!-- ABOUT SECTION -->
+  <section class="about">
+    <h2>Micro‑Manufacturing for Schools, Teams & Local Programs</h2>
+    <p>
+      Seymour.Ink is a small‑batch, in‑house production studio specializing in UV printing,
+      3D printing, and custom merchandise programs for schools, teams, and community groups.
+      Every item is produced locally with precision, care, and fast turnaround.
+    </p>
+  </section>
 
-a:hover {
-  opacity: 0.7;
-}
+  <!-- WHAT WE MAKE -->
+  <section class="services">
+    <h2>What We Make</h2>
+    <ul>
+      <li>Custom UV‑printed keychains, tags, and accessories</li>
+      <li>3D‑printed functional and decorative items</li>
+      <li>School & team merch programs with dynamic earnings tiers</li>
+      <li>Local fundraising pages with QR‑based promotions</li>
+      <li>Small‑batch production for creators and small businesses</li>
+    </ul>
+  </section>
 
-/* --------------------------------------------------
-   HERO / HOMEPAGE
--------------------------------------------------- */
+  <!-- APPROACH -->
+  <section class="approach">
+    <h2>Our Approach</h2>
+    <p>
+      We keep things simple: clear agreements, transparent pricing, and full respect for
+      your logo and brand. You control your earnings through our tier system, and we handle
+      production, fulfillment, and optional marketing support.
+    </p>
+  </section>
 
-.hero {
-  text-align: center;
-  padding: 40px 20px;
-}
+  <!-- INK SPAT BUTTONS -->
+  <div class="ink-buttons">
+    <a href="/services/uv-printing.html" class="ink-button">UV Printing</a>
+    <a href="/services/3d-printing.html" class="ink-button">3D Printing</a>
+    <a href="/services/micro-manufacturing.html" class="ink-button">Micro‑Manufacturing</a>
+  </div>
 
-.hero-img {
-  max-width: 200px;
-  margin-bottom: 20px;
-}
+</main>
 
-.tagline {
-  font-size: 20px;
-  margin-top: 10px;
-}
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>Contact: <a href="mailto:info&#64;seymour&#46;ink">info&#64;seymour&#46;ink</a></p>
+</footer>
 
-.sub {
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* --------------------------------------------------
-   PAGE CONTAINERS
--------------------------------------------------- */
-
-.consent-container,
-.contract,
-.invoice-container,
-.product-container,
-.standard-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 6px;
-  box-shadow: 0 0 4px rgba(0,0,0,0.05);
-}
-
-/* --------------------------------------------------
-   FORMS
--------------------------------------------------- */
-
-input[type="text"],
-input[type="email"],
-input[type="number"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-}
-
-label {
-  display: block;
-  margin: 10px 0;
-}
-
-button,
-.pay-button {
-  background: #111;
-  color: #fff;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 4px;
-  margin-top: 10px;
-}
-
-button:hover,
-.pay-button:hover {
-  opacity: 0.85;
-}
-
-/* --------------------------------------------------
-   INVOICE TABLE
--------------------------------------------------- */
-
-.invoice-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-}
-
-.invoice-table th,
-.invoice-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.invoice-table th {
-  background: rgba(0,0,0,0.05);
-  font-weight: 600;
-}
-
-/* --------------------------------------------------
-   PRODUCT GALLERY (main.webp, 1.webp, 2.webp)
--------------------------------------------------- */
-
-.product-gallery {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.product-gallery .main-image {
-  max-width: 100%;
-  border-radius: 6px;
-  margin-bottom: 20px;
-}
-
-.product-gallery .thumbs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.product-gallery .thumbs img {
-  width: 80px;
-  height: auto;
-  border-radius: 4px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  background: #fff;
-}
-
-.product-gallery .thumbs img:hover {
-  opacity: 0.8;
-}
-
-/* --------------------------------------------------
-   UTILITY
--------------------------------------------------- */
-
-.small {
-  font-size: 13px;
-  opacity: 0.7;
-}
-
-.center {
-  text-align: center;
-}
-
-.hidden {
-  display: none;
-}
+</body>
+</html>
