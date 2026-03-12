@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Columbus Power Elite – Merch</title>
+  <title>Columbus Power Elite</title>
 
   <style>
     body {
@@ -15,23 +15,38 @@
       padding: 20px;
     }
 
-    h1 {
-      margin-bottom: 10px;
+    header img {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    .school-logo {
+      width: 260px;
+      max-width: 80%;
+      margin: 0 auto 30px auto;
+      display: block;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
-      max-width: 900px;
-      margin: 30px auto;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .card {
       background: white;
-      padding: 16px;
+      padding: 20px;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
     }
 
     .card img {
@@ -40,45 +55,40 @@
       margin-bottom: 10px;
     }
 
-    .label {
-      font-weight: bold;
-    }
-
-    a.back {
-      display: inline-block;
-      margin-top: 30px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      opacity: 0.6;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Columbus Power Elite – Merch</h1>
-  <p>Select an item below to view this logo on different products.</p>
+  <!-- Seymour.Ink brand header -->
+  <header>
+    <img src="/images/seymour-ink-logo.png" alt="Seymour.Ink Logo" />
+    <h1>Columbus Power Elite</h1>
+  </header>
 
+  <!-- School’s main logo (reference only, not a link) -->
+  <img src="logo-main.png" alt="Columbus Power Elite Logo" class="school-logo" />
+
+  <!-- Team logos section -->
   <div class="grid">
-    <div class="card">
-      <img src="earring.webp" alt="Earring" />
-      <div class="label">Earrings</div>
-    </div>
 
-    <div class="card">
-      <img src="keychain.webp" alt="Keychain" />
-      <div class="label">Keychain</div>
-    </div>
+    <!-- Only one team logo exists -->
+    <a class="card" href="/schools/columbus-power-elite/logos/columbus-power-elite-0001/products/">
+      <img src="logos/columbus-power-elite-0001/logo.webp" alt="Team Logo" />
+      <h3>Team Logo</h3>
+      <p>View merch for this logo</p>
+    </a>
 
-    <div class="card">
-      <img src="necklase.webp" alt="Necklace" />
-      <div class="label">Necklace</div>
-    </div>
   </div>
 
-  <a class="back" href="/schools/columbus-power-elite/">
-    ← Back to Columbus Power Elite
-  </a>
+  <footer>
+    test
+  </footer>
 
 </body>
 </html>
