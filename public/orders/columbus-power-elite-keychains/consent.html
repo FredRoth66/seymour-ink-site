@@ -59,6 +59,19 @@
       border-radius: 8px;
       background: #fafafa;
     }
+
+    .checkbox-row {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+
+    input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+    }
   </style>
 </head>
 
@@ -83,6 +96,12 @@
 
     <div class="approve-box">
       <p>By checking the box below, you approve the design, quantity, and pricing listed above and grant Seymour.Ink permission to reproduce your organization’s logo for this order.</p>
+
+      <!-- ⭐ Restored checkbox -->
+      <div class="checkbox-row">
+        <input type="checkbox" id="approve">
+        <label for="approve">I approve this order</label>
+      </div>
     </div>
 
   </main>
