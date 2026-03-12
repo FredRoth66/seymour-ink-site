@@ -39,7 +39,6 @@
       margin-bottom: 20px;
     }
 
-    /* Responsive images */
     .consent-container img {
       max-width: 100%;
       height: auto;
@@ -65,12 +64,37 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     input[type="checkbox"] {
       width: 22px;
       height: 22px;
+    }
+
+    .details-box {
+      margin-top: 25px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      display: none;
+    }
+
+    .details-box h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .learn-more {
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .learn-more a {
+      color: #0066cc;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -78,7 +102,7 @@
 <body>
 
   <header class="site-header">
-    <a href="/"><img src="/organizations/columbus-power-elite/logo.webp" class="site-logo" alt="Seymour Ink logo"></a>
+    <a href="/"><img src="/organizations/columbus-power-elite/logo.webp" class="site-logo" alt="Columbus Power Elite logo"></a>
   </header>
 
   <main class="consent-container">
@@ -91,20 +115,48 @@
     <p><strong>Pricing:</strong> Bulk pricing applied</p>
     <p><strong>Shipping:</strong> Waived (hand delivery)</p>
 
-    <!-- Corrected image path -->
+    <!-- Main proof image -->
     <img src="/organizations/columbus-power-elite/proof.webp" alt="Product mockup">
 
     <div class="approve-box">
       <p>By checking the box below, you approve the design, quantity, and pricing listed above and grant Seymour.Ink permission to reproduce your organization’s logo for this order.</p>
 
-      <!-- ⭐ Restored checkbox -->
       <div class="checkbox-row">
         <input type="checkbox" id="approve">
         <label for="approve">I approve this order</label>
       </div>
     </div>
 
+    <!-- Revealed AFTER checkbox is checked -->
+    <div id="details" class="details-box">
+      <h2>Additional Notes</h2>
+
+      <!-- ⭐ NOTES IMAGE RESTORED HERE -->
+      <img src="/organizations/columbus-power-elite/notes.webp" alt="Notes image">
+
+      <p class="learn-more">
+        Learn more about how we produce and finish these pieces:
+        <br>
+        • <a href="/learn/uv-printing.html" target="_blank">How UV printing works</a><br>
+        • <a href="/learn/3d-printing.html" target="_blank">How 3D printing works</a><br>
+        • <a href="/learn/logo-usage.html" target="_blank">Logo usage & permissions</a>
+      </p>
+
+      <p>If anything needs to change, reply to your confirmation email before production begins.</p>
+    </div>
+
   </main>
+
+  <script>
+    const approveCheckbox = document.getElementById('approve');
+    const detailsBox = document.getElementById('details');
+
+    if (approveCheckbox && detailsBox) {
+      approveCheckbox.addEventListener('change', () => {
+        detailsBox.style.display = approveCheckbox.checked ? 'block' : 'none';
+      });
+    }
+  </script>
 
 </body>
 </html>
