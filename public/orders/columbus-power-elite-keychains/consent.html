@@ -6,35 +6,35 @@
   <link rel="stylesheet" href="/styles.css">
 
   <style>
-    /* GLOBAL TYPOGRAPHY UPGRADE */
+    /* GLOBAL TYPOGRAPHY + LAYOUT FIX */
     body {
       font-family: system-ui, sans-serif;
-      padding: 20px;
+      padding: 24px;
       max-width: 800px;
       margin: auto;
-      font-size: 1.15rem;
-      line-height: 1.7;
+      font-size: 1.3rem;
+      line-height: 1.75;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.3rem;
       margin-bottom: 1rem;
     }
 
     h2 {
-      font-size: 1.6rem;
-      margin-top: 2rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.9rem;
+      margin-top: 2.2rem;
+      margin-bottom: 0.8rem;
     }
 
     label.big-text {
-      font-size: 1.3rem;
+      font-size: 1.45rem;
       display: block;
-      margin: 1rem 0;
+      margin: 1.2rem 0;
     }
 
     .learn-more a {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
     }
 
     /* INPUT FIELDS */
@@ -42,69 +42,74 @@
     input[type="email"],
     input[type="tel"] {
       width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      font-size: 1.15rem;
-      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 1.25rem;
+      border-radius: 8px;
       border: 1px solid #ccc;
     }
 
     .small-note {
-      font-size: 1rem;
+      font-size: 1.15rem;
       opacity: 0.75;
     }
 
-    /* GLOBAL RESPONSIVE FIX FOR IMAGES + VIDEO */
+    /* IMAGE + VIDEO RESPONSIVE FIX */
     img, video {
       width: 100%;
       height: auto;
-      max-width: 700px;
+      max-width: 550px; /* Reduced ~25% */
       display: block;
-      margin: 1.2rem auto;
-      border-radius: 8px;
+      margin: 1.4rem auto;
+      border-radius: 10px;
     }
 
-    /* DEAD SPACE BELOW FIRST CONSENT */
+    /* EXTRA SPACE BELOW FIRST CONSENT */
     #permission1 {
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
 
     /* SUBMIT BUTTON */
     #submitBtn {
-      margin-top: 40px;
+      margin-top: 50px;
       width: 100%;
-      padding: 18px;
-      font-size: 1.5rem;
+      padding: 20px;
+      font-size: 1.6rem;
       background: black;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       display: none;
     }
 
     /* DIMMED CONSENT */
     .dimmed {
-      opacity: 0.4;
+      opacity: 0.35;
       pointer-events: none;
     }
 
     /* MOBILE TUNING */
     @media (max-width: 480px) {
       body {
-        font-size: 1.2rem;
-      }
-      h1 {
-        font-size: 2.1rem;
-      }
-      h2 {
-        font-size: 1.7rem;
-      }
-      label.big-text {
+        padding: 28px; /* More left/right padding */
         font-size: 1.35rem;
       }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      label.big-text {
+        font-size: 1.5rem;
+      }
+
       img, video {
-        max-width: 92%;
+        max-width: 88%;
       }
     }
   </style>
