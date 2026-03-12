@@ -2,145 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Order Approval & Consent – Seymour.Ink</title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body class="white-bg">
-<header class="site-header">
-  <a href="/"><img src="/images/seymour-ink-logo.png" class="site-logo" alt="Seymour.Ink logo"></a>
-</header>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Approval & Logo Permission</title>
 
-<main class="consent-container">
+  <link rel="stylesheet" href="./styles.css">
 
-<h1>Order Approval & Logo Permission</h1>
-
-<section>
-  <h2>Your Order</h2>
-  <p><strong>Organization:</strong> Columbus Power Elite Cheer</p>
-  <p><strong>Items:</strong> 80 custom keychains</p>
-  <p><strong>Design Fee:</strong> Waived ($50 value)</p>
-  <p><strong>Pricing:</strong> Bulk pricing applied</p>
-  <p><strong>Shipping:</strong> Waived (hand delivery)</p>
-</section>
-
-<section>
-  <h2>Your Logo</h2>
-  <picture>
-    <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo.webp" type="image/webp">
-    <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo-original.png" alt="Uploaded Logo">
-  </picture>
-</section>
-
-<section>
-  <h2>Details</h2>
-  <picture>
-    <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.webp" type="image/webp">
-    <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.png" alt="Design Notes">
-  </picture>
-</section>
-
-<section>
-  <h2>Finished Proof</h2>
-  <picture>
-    <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp">
-    <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Finished Proof">
-  </picture>
-</section>
-
-<!-- PERMISSION #1 -->
-<section id="permission1">
-  <h2>Permission for This Order</h2>
-
-  <label>
-    <input type="checkbox" id="order_permission" required>
-    By selecting this box, you are granting us permission to produce this order.
-  </label>
-
-  <div class="learn-more">
-    <a href="/contracts/learn-order-permission.html" target="_blank">Learn more</a>
-  </div>
-</section>
-
-<!-- PERMISSION #2 (hidden until #1 is checked) -->
-<section id="permission2" style="display:none;">
-  <h2>Optional Marketing Permission</h2>
-
-  <label>
-    <input type="checkbox" id="marketing_permission">
-    With your permission, we can offer this product for sale on our website where you could earn money for your organization through future sales.
-  </label>
-
-  <div class="learn-more">
-    <a href="/contracts/learn-marketing-permission.html" target="_blank">Learn more</a>
-  </div>
-</section>
-
-<!-- PERMISSION #3 (hidden until #2 is checked) -->
-<section id="permission3" style="display:none;">
-  <h2>Allow Variations</h2>
-  <label>
-    <input type="checkbox" id="variation_permission">
-    Allow color/texture variations
-  </label>
-</section>
-
-<!-- VIDEO SECTION (hidden until #3 is checked) -->
-<section id="videoSection" style="display:none;">
-  <h2>Other Products Using Your Logo</h2>
-
-  <video id="polaroidVideo" width="100%" autoplay loop muted playsinline>
-    <source src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/polor.mp4" type="video/mp4">
-  </video>
-</section>
-
-<section>
-  <h2>Earnings, Logo Tier & Store Credits</h2>
-  <p>
-    Earnings are based on your logo tier and tracked as store credits.
-    <a href="/contracts/earnings-and-tiers.html" target="_blank">Earnings & Tiers</a>
-    <a href="/contracts/store-credit-policy.html" target="_blank">Store Credit Policy</a>
-  </p>
-  <label><input type="checkbox" required> I understand how logo tiers and store credits work.</label>
-</section>
-
-<section class="signature-block">
-  <h2>Confirmation</h2>
-  <label>Name<input type="text" required></label>
-  <label>Email<input type="email" required></label>
-</section>
-
-<button type="submit">Submit Approval</button>
-
-</main>
-
-<script>
-  const orderPermission = document.getElementById('order_permission');
-  const marketingPermission = document.getElementById('marketing_permission');
-  const variationPermission = document.getElementById('variation_permission');
-
-  const permission2 = document.getElementById('permission2');
-  const permission3 = document.getElementById('permission3');
-  const videoSection = document.getElementById('videoSection');
-  const video = document.getElementById('polaroidVideo');
-
-  orderPermission.addEventListener('change', () => {
-    permission2.style.display = orderPermission.checked ? 'block' : 'none';
-  });
-
-  marketingPermission.addEventListener('change', () => {
-    permission3.style.display = marketingPermission.checked ? 'block' : 'none';
-  });
-
-  variationPermission.addEventListener('change', () => {
-    if (variationPermission.checked) {
-      videoSection.style.display = 'block';
-      video.play();
-    } else {
-      video.pause();
-      videoSection.style.display = 'none';
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
     }
-  });
-</script>
+
+    .site-header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .site-logo {
+      width: 180px;
+      max-width: 80%;
+    }
+
+    .consent-container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* ⭐ Responsive images — this fixes your oversized graphics */
+    .consent-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    p {
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .approve-box {
+      margin-top: 25px;
+      padding: 15px;
+      border: 2px solid #000;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="/"><img src="./images/seymour-ink-logo.png" class="site-logo" alt="Seymour Ink logo"></a>
+  </header>
+
+  <main class="consent-container">
+
+    <h1>Order Approval & Logo Permission</h1>
+
+    <p><strong>Organization:</strong> Columbus Power Elite</p>
+    <p><strong>Items:</strong> 80 custom keychains</p>
+    <p><strong>Design Fee:</strong> Waived ($50 value)</p>
+    <p><strong>Pricing:</strong> Bulk pricing applied</p>
+    <p><strong>Shipping:</strong> Waived (hand delivery)</p>
+
+    <!-- Your product mockup or logo image -->
+    <img src="./mockup.webp" alt="Product mockup">
+
+    <div class="approve-box">
+      <p>By checking the box below, you approve the design, quantity, and pricing listed above and grant Seymour.Ink permission to reproduce your organization’s logo for this order.</p>
+    </div>
+
+  </main>
 
 </body>
 </html>
