@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Your Organization • Seymour.Ink</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* ------------------------------
+       GLOBAL STYLE
+    ------------------------------ */
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      background: #fafafa url('/img/paper-texture.png'); /* your paper texture */
+      background-size: cover;
+      color: #222;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    p.sub {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #444;
+    }
+
+    /* ------------------------------
+       SEARCH BAR
+    ------------------------------ */
+
+    #search {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: 1.2rem;
+      border: 2px solid #000;
+      border-radius: 0;
+      background: #fff;
+      outline: none;
+    }
+
+    /* ------------------------------
+       INK BUTTON
+    ------------------------------ */
+
+    .ink-button {
+      display: inline-block;
+      padding: 14px 26px;
+      margin-top: 20px;
+      background: url('/img/ink-spot.png') no-repeat center/contain;
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .ink-button:hover {
+      opacity: 0.85;
+    }
+
+    /* ------------------------------
+       RESULTS
+    ------------------------------ */
+
+    #results {
+      margin-top: 30px;
+    }
+
+    .org-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 0; /* hard corners */
+      box-sizing: border-box;
+    }
+
+    .org-card a {
+      text-decoration: none;
+      color: #000;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    /* ------------------------------
+       INFO SECTIONS
+    ------------------------------ */
+
+    .info-block {
+      margin-top: 50px;
+      padding: 25px;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 0;
+    }
+
+    .info-block h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .info-block p {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .learn-more {
+      font-weight: 700;
+      color: #000;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* ------------------------------
+       ADD LOGO SECTION
+    ------------------------------ */
+
+    #add-logo-section {
+      margin-top: 60px;
+      padding: 40px;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 0;
+      text-align: center;
+    }
+
+    #add-logo-section h2 {
+      margin-top: 0;
+    }
+
+    #add-team-btn {
+      display: none;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <h1>Find Your Organization</h1>
+    <p class="sub">Search for your team, club, business, or family name.</p>
+
+    <input id="search" type="text" placeholder="Search organizations…">
+
+    <button id="add-team-btn" class="ink-button">Add Your Logo</button>
+
+    <div id="results"></div>
+
+    <!-- INFO SECTIONS -->
+    <div class="info-block">
+      <h2>We work with all kinds of organizations</h2>
+      <p>Small schools, travel teams, clubs, businesses, and families — if you have a logo, we can make merch for you.</p>
+      <span class="learn-more">Learn More</span>
+    </div>
+
+    <div class="info-block">
+      <h2>Fundraising is optional</h2>
+      <p>Many groups use our merch to raise money, but you don’t have to.</p>
+      <span class="learn-more">Learn More</span>
+    </div>
+
+    <div class="info-block">
+      <h2>You own your logo — we just need permission</h2>
+      <p>We only produce items after you confirm you have the rights to use the logo.</p>
+      <span class="learn-more">Learn More</span>
+    </div>
+
+    <div class="info-block">
+      <h2>Want something custom?</h2>
+      <p>We can design logos, graphics, and merch layouts even if you don’t order products.</p>
+      <span class="learn-more">Learn More</span>
+    </div>
+
+    <div class="info-block">
+      <h2>Made for small‑batch teams</h2>
+      <p>We specialize in high‑quality items for groups that big vendors overlook.</p>
+      <span class="learn-more">Learn More</span>
+    </div>
+
+    <!-- ADD LOGO SECTION -->
+    <div id="add-logo-section">
+      <h2>Add Your Logo</h2>
+      <p>Upload your organization’s logo to get started.</p>
+
+      <!-- Placeholder for your sketch art -->
+      <div style="margin: 20px 0; height: 200px; border: 3px solid #000; background: #fff;">
+        <!-- Your sketch art goes here -->
+      </div>
+
+      <button class="ink-button">Upload Logo</button>
+    </div>
+
+  </div>
+
+  <script>
+    /* ------------------------------
+       SEARCH LOGIC
+    ------------------------------ */
+
+    const searchInput = document.getElementById('search');
+    const results = document.getElementById('results');
+    const addTeamBtn = document.getElementById('add-team-btn');
+
+    /* Example data — replace with your JSON */
+    const organizations = [
+      { name: "Seymour High School", slug: "seymour-high-school" },
+      { name: "Columbus Power Elite", slug: "columbus-power-elite" },
+      { name: "Jackson County Youth Club", slug: "jackson-county-youth-club" }
+    ];
+
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase().trim();
+
+      if (term === "") {
+        results.innerHTML = "";
+        addTeamBtn.style.display = "none";
+        return;
+      }
+
+      const matches = organizations.filter(o =>
+        o.name.toLowerCase().includes(term) ||
+        o.slug.toLowerCase().includes(term)
+      );
+
+      if (matches.length === 0) {
+        results.innerHTML = "";
+        addTeamBtn.style.display = "inline-block";
+        return;
+      }
+
+      addTeamBtn.style.display = "none";
+
+      results.innerHTML = matches.map(o => `
+        <div class="org-card">
+          <a href="/organizations/${o.slug}/">${o.name}</a>
+        </div>
+      `).join('');
+    });
+  </script>
+
+</body>
+</html>

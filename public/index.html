@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seymour.Ink – Custom Printing & Creative Production</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="white-bg home">
+
+<header class="hero">
+  <img src="/images/hero-storefront.webp" class="hero-img" alt="Seymour.Ink storefront">
+  <h1>Seymour.Ink</h1>
+  </header>
+
+<main class="standard-container center">
+
+  <!-- INK BUTTONS FOR THE THREE ORIGINAL SECTIONS -->
+  <div class="ink-buttons">
+    <button class="ink-button" onclick="openPopup('micro')">Who?</button>
+    <button class="ink-button" onclick="openPopup('what')">What?</button>
+    <button class="ink-button" onclick="openPopup('approach')">Why?</button>
+  </div>
+
+  <!-- UV / 3D IMAGE LINKS (KEEP YOUR EXISTING IMAGES/PAGES) -->
+  <section class="service-links">
+    <h2>Learn More About Our Tools</h2>
+    <div class="service-images">
+      <a href="/uv-printing.html">
+        <img src="/images/uv-printing.webp" alt="UV Printing">
+      </a>
+      <a href="/3d-printing.html">
+        <img src="/images/3d-printing.webp" alt="3D Printing">
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- POPUPS WITH THE ORIGINAL TEXT -->
+
+<div id="popup-micro" class="popup hidden">
+  <div class="popup-content">
+    <h2>Who we are,</h2>
+    <p>
+      Seymour.Ink, opperating locally in Seymour, Indiana, is a small‑batch, in‑house production studio specializing in UV printing, and 3D printing.
+    </p>
+    <button onclick="closePopup('micro')">Close</button>
+  </div>
+</div>
+
+<div id="popup-what" class="popup hidden">
+  <div class="popup-content">
+    <h2>What we do,</h2>
+    <ul>
+      <li>Custom UV‑printed</li>
+      <li>Custom 3D‑printing</li>
+      <li>Custom Marketing</li>
+      <li>Small‑batch production services</li>
+    </ul>
+    <button onclick="closePopup('what')">Close</button>
+  </div>
+</div>
+
+<div id="popup-approach" class="popup hidden">
+  <div class="popup-content">
+    <h2>Why we do it,</h2>
+    <p>
+      We want to contribute to the community in which we live and give back with our support for the schools, organizations, groups and the people we encounter everyday. 
+    </p>
+    <button onclick="closePopup('approach')">Close</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p><a href="/contact.html">Contact Seymour.Ink</a></p>
+</footer>
+
+<script>
+function openPopup(id) {
+  document.getElementById('popup-' + id).classList.remove('hidden');
+}
+function closePopup(id) {
+  document.getElementById('popup-' + id).classList.add('hidden');
+}
+</script>
+
+</body>
+</html>

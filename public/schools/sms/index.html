@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seymour Middle School Merchandise — Seymour.Ink</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/products.js"></script>
+  <script src="/cart.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="logo-link">
+    <img src="/images/seymour-ink-logo.png" alt="Seymour.Ink" class="site-logo">
+  </a>
+  <nav class="site-nav">
+    <a href="/">Home</a>
+    <a href="/search">Search Schools</a>
+    <a href="/cart">Cart</a>
+  </nav>
+</header>
+
+<main class="main-content">
+  <section class="school-header">
+    <img src="/schools/sms/logo.png" alt="Seymour Middle School Logo" width="120">
+    <h1>Seymour Middle School</h1>
+  </section>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="/images/earrings.png" alt="Logo Earrings">
+      <h3>Logo Earrings</h3>
+      <p>$15.00</p>
+      <button onclick="addToCart('earrings', 'Seymour Middle School')">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="/images/necklace.png" alt="Logo Necklace">
+      <h3>Logo Necklace</h3>
+      <p>$20.00</p>
+      <button onclick="addToCart('necklace', 'Seymour Middle School')">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="/images/keychain.png" alt="Logo Keychain">
+      <h3>Logo Keychain</h3>
+      <p>$12.00</p>
+      <button onclick="addToCart('keychain', 'Seymour Middle School')">Add to Cart</button>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 Seymour.Ink — Seymour, Indiana</p>
+  <nav class="footer-nav">
+    <a href="/search">Search Schools</a>
+    <a href="/add-school">Add Your School</a>
+    <a href="mailto:hello@seymour.ink">Contact</a>
+  </nav>
+</footer>
+
+</body>
+</html>

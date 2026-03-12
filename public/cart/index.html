@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart — Seymour.Ink</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/products.js"></script>
+  <script src="/logo-config.js"></script>
+  <script type="module" src="/pricing.js"></script>
+  <script type="module" src="/cart.js"></script>
+</head>
+<body onload="renderCart()">
+
+<header class="site-header">
+  <a href="/" class="logo-link">
+    <img src="/images/seymour-ink-logo.png" alt="Seymour.Ink" class="site-logo">
+  </a>
+  <nav class="site-nav">
+    <a href="/">About</a>
+    <a href="/search">Find Your School</a>
+    <a href="/add-team">Add Your Team</a>
+    <a href="/cart">Cart</a>
+  </nav>
+</header>
+
+<main class="main-content">
+  <h1>Your Cart</h1>
+
+  <div id="cart-items"></div>
+
+  <h2>Total: <span id="cart-total">$0.00</span></h2>
+
+  <button onclick="checkout()">Checkout</button>
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 Seymour.Ink — Seymour, Indiana</p>
+  <nav class="footer-nav">
+    <a href="/search">Find Your School</a>
+    <a href="/add-team">Add Your Team</a>
+    <a href="mailto:hello@seymour.ink">Contact</a>
+  </nav>
+</footer>
+
+</body>
+</html>
