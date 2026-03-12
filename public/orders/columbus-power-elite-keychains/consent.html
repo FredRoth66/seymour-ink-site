@@ -5,7 +5,6 @@
   <title>Order Approval & Consent – Seymour.Ink</title>
   <link rel="stylesheet" href="/styles.css">
 
-  <!-- Minimal, safe layout + scaling fixes -->
   <style>
     body.white-bg {
       margin: 0;
@@ -33,29 +32,15 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
 
-    .consent-container h1 {
-      margin-top: 0;
-      text-align: center;
-    }
-
-    .consent-container section {
-      margin-bottom: 24px;
-    }
-
-    picture,
-    picture img {
-      display: block;
+    picture, img, video {
       max-width: 100%;
       height: auto;
+      display: block;
       margin: 0 auto 16px auto;
     }
 
-    video {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      overflow: hidden;
+    section {
+      margin-bottom: 24px;
     }
 
     label {
@@ -103,12 +88,9 @@
       color: #fff;
       cursor: pointer;
     }
-
-    button[type="submit"]:hover {
-      background: #0b1220;
-    }
   </style>
 </head>
+
 <body class="white-bg">
 <header class="site-header">
   <a href="/"><img src="/images/seymour-ink-logo.png" class="site-logo" alt="Seymour.Ink logo"></a>
@@ -125,6 +107,7 @@
   <p><strong>Design Fee:</strong> Waived ($50 value)</p>
   <p><strong>Pricing:</strong> Bulk pricing applied</p>
   <p><strong>Shipping:</strong> Waived (hand delivery)</p>
+  <p><strong>Total (with tax):</strong> $136.96</p>
 </section>
 
 <section>
@@ -148,6 +131,15 @@
   <picture>
     <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp">
     <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Finished Proof">
+  </picture>
+</section>
+
+<!-- ⭐ NEW: IN-USE IMAGE (hidden until first checkbox) -->
+<section id="inUseSection" style="display:none;">
+  <h2>Product In Use</h2>
+  <picture>
+    <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/in-use.webp" type="image/webp">
+    <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/in-use.png" alt="Product In Use">
   </picture>
 </section>
 
@@ -192,12 +184,13 @@
 <section id="videoSection" style="display:none;">
   <h2>Other Products Using Your Logo</h2>
 
-  <video id="polaroidVideo" width="100%" autoplay loop muted playsinline>
+  <video id="polaroidVideo" autoplay loop muted playsinline>
     <source src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/polor.mp4" type="video/mp4">
   </video>
 </section>
 
-<section>
+<!-- EARNINGS (hidden until first checkbox) -->
+<section id="earningsSection" style="display:none;">
   <h2>Earnings, Logo Tier & Store Credits</h2>
   <p>
     Earnings are based on your logo tier and tracked as store credits.
@@ -207,13 +200,14 @@
   <label><input type="checkbox" required> I understand how logo tiers and store credits work.</label>
 </section>
 
-<section class="signature-block">
+<!-- CONFIRMATION (hidden until first checkbox) -->
+<section id="confirmationSection" class="signature-block" style="display:none;">
   <h2>Confirmation</h2>
   <label>Name<input type="text" required></label>
   <label>Email<input type="email" required></label>
 </section>
 
-<button type="submit">Submit Approval</button>
+<button type="submit" id="submitButton" style="display:none;">Submit Approval</button>
 
 </main>
 
@@ -227,8 +221,19 @@
   const videoSection = document.getElementById('videoSection');
   const video = document.getElementById('polaroidVideo');
 
+  const inUseSection = document.getElementById('inUseSection');
+  const earningsSection = document.getElementById('earningsSection');
+  const confirmationSection = document.getElementById('confirmationSection');
+  const submitButton = document.getElementById('submitButton');
+
   orderPermission.addEventListener('change', () => {
-    permission2.style.display = orderPermission.checked ? 'block' : 'none';
+    const show = orderPermission.checked;
+
+    permission2.style.display = show ? 'block' : 'none';
+    inUseSection.style.display = show ? 'block' : 'none';
+    earningsSection.style.display = show ? 'block' : 'none';
+    confirmationSection.style.display = show ? 'block' : 'none';
+    submitButton.style.display = show ? 'inline-block' : 'none';
   });
 
   marketingPermission.addEventListener('change', () => {
