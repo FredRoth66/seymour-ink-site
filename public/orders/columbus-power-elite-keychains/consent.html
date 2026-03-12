@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order Approval & Logo Permission</title>
 
-  <link rel="stylesheet" href="./styles.css">
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -39,32 +37,27 @@
       margin-bottom: 20px;
     }
 
-    .consent-container img {
+    img {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto 20px auto;
     }
 
-    p {
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-
-    .approve-box {
-      margin-top: 25px;
+    .notes-block {
+      margin-top: 20px;
       padding: 15px;
-      border: 2px solid #000;
-      border-radius: 8px;
       background: #fafafa;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
 
     .checkbox-row {
-      margin-top: 20px;
+      margin-top: 25px;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
     input[type="checkbox"] {
@@ -72,29 +65,14 @@
       height: 22px;
     }
 
-    .details-box {
+    /* Only shown AFTER checkbox */
+    #final-section {
+      display: none;
       margin-top: 25px;
       padding: 15px;
-      border-radius: 8px;
       background: #f0f0f0;
+      border-radius: 8px;
       border: 1px solid #ccc;
-      display: none;
-    }
-
-    .details-box h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-
-    .learn-more {
-      margin-top: 10px;
-      font-size: 0.95rem;
-    }
-
-    .learn-more a {
-      color: #0066cc;
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -102,7 +80,7 @@
 <body>
 
   <header class="site-header">
-    <a href="/"><img src="/organizations/columbus-power-elite/logo.webp" class="site-logo" alt="Columbus Power Elite logo"></a>
+    <a href="/"><img src="/organizations/columbus-power-elite/logo.webp" class="site-logo"></a>
   </header>
 
   <main class="consent-container">
@@ -115,47 +93,45 @@
     <p><strong>Pricing:</strong> Bulk pricing applied</p>
     <p><strong>Shipping:</strong> Waived (hand delivery)</p>
 
-    <!-- Main proof image -->
+    <!-- Proof image -->
     <img src="/organizations/columbus-power-elite/proof.webp" alt="Product mockup">
 
-    <div class="approve-box">
-      <p>By checking the box below, you approve the design, quantity, and pricing listed above and grant Seymour.Ink permission to reproduce your organization’s logo for this order.</p>
+    <!-- ⭐ NOTES BLOCK — ALWAYS VISIBLE -->
+    <div class="notes-block">
+      <h2>Notes</h2>
 
-      <div class="checkbox-row">
-        <input type="checkbox" id="approve">
-        <label for="approve">I approve this order</label>
-      </div>
-    </div>
+      <p><strong>Dakota</strong></p>
+      <p>Using overture colors – light blue for the top P, then silver, then black for the bottom layer.</p>
+      <p>We need 80 by March 22nd.</p>
 
-    <!-- Revealed AFTER checkbox is checked -->
-    <div id="details" class="details-box">
-      <h2>Additional Notes</h2>
-
-      <!-- ⭐ NOTES IMAGE RESTORED HERE -->
+      <!-- Notes image -->
       <img src="/organizations/columbus-power-elite/notes.webp" alt="Notes image">
 
-      <p class="learn-more">
-        Learn more about how we produce and finish these pieces:
-        <br>
-        • <a href="/learn/uv-printing.html" target="_blank">How UV printing works</a><br>
-        • <a href="/learn/3d-printing.html" target="_blank">How 3D printing works</a><br>
-        • <a href="/learn/logo-usage.html" target="_blank">Logo usage & permissions</a>
-      </p>
+      <p><strong>Digital Blue</strong></p>
+      <p><strong>Silver Silk</strong></p>
+      <p><strong>Carbon Black</strong></p>
+    </div>
 
-      <p>If anything needs to change, reply to your confirmation email before production begins.</p>
+    <!-- Checkbox -->
+    <div class="checkbox-row">
+      <input type="checkbox" id="approve">
+      <label for="approve">I approve this order</label>
+    </div>
+
+    <!-- ⭐ FINAL SECTION (only if you had one) -->
+    <div id="final-section">
+      <p>Your approval has been recorded.</p>
     </div>
 
   </main>
 
   <script>
-    const approveCheckbox = document.getElementById('approve');
-    const detailsBox = document.getElementById('details');
+    const cb = document.getElementById('approve');
+    const finalBox = document.getElementById('final-section');
 
-    if (approveCheckbox && detailsBox) {
-      approveCheckbox.addEventListener('change', () => {
-        detailsBox.style.display = approveCheckbox.checked ? 'block' : 'none';
-      });
-    }
+    cb.addEventListener('change', () => {
+      finalBox.style.display = cb.checked ? 'block' : 'none';
+    });
   </script>
 
 </body>
