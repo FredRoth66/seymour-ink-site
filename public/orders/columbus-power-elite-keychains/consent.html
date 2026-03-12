@@ -150,27 +150,13 @@ img, video {
 
 <main class="consent-container">
 
-<h1>Order Approval & Logo Permission</h1>
+<header class="site-header"> <a href="/"> <img src="/images/seymour-ink-logo.png" class="site-logo" alt="Seymour.Ink logo"> </a> </header>
 
-<section> <h2>Your Order</h2> <p class="cost-line"><strong>Organization:</strong> Columbus Power Elite Cheer</p> <p class="cost-line"><strong>Items:</strong> 80 custom keychains</p> <p class="cost-line"><strong>Design Fee:</strong> Waived ($50 value)</p> <p class="cost-line"><strong>Pricing:</strong> Bulk pricing applied</p> <p class="cost-line"><strong>Shipping:</strong> Waived (hand delivery)</p>
+<h1 style="text-align:center; margin-top: 2rem;">Order Approval and Permission</h1>
 
-<h2>Cost Breakdown</h2> <p class="cost-line">$1.60 each</p> <p class="cost-line">Subtotal: $128.00</p> <p class="cost-line">Tax (7%): $8.96</p> <p class="cost-line">Total: $136.96</p> </section>
+<section id="nameEntrySection" style="margin-top: 3rem; text-align: center;"> <p style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.6rem;">Please enter your name to find your order:</p> <input type="text" id="nameInput" placeholder="Your full name" style="font-size: 2.8rem; padding: 18px 22px; width: 100%; max-width: 400px; border-radius: 14px; border: 1px solid #ccc; text-align: center; font-weight: 600;"> <button id="searchNameBtn" style="margin-top: 2rem; font-size: 2.8rem; padding: 18px 30px; border-radius: 14px; background-color: black; color: white; border: none; cursor: pointer; font-weight: 800;">Search</button> <p id="nameError" style="color: red; font-size: 2.4rem; margin-top: 1rem; display: none;">Please enter a name to continue.</p> </section>
 
-<!-- INVOICE DELIVERY BLOCK --> <section id="invoiceSection"> <h2>How would you like your invoice sent?</h2>
-
-<label class="big-text"> Text Message <input type="tel" id="invoice_phone" placeholder="Phone number"> </label>
-
-<label class="big-text"> Email <input type="email" id="invoice_email" placeholder="Email address"> </label>
-
-<p class="small-note">Phone number or email required before approving.</p> </section>
-
-<section> <h2>Your Logo</h2> <picture> <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo.webp" type="image/webp"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo-original.png" alt="Uploaded Logo"> </picture> </section>
-
-<section> <h2>Details</h2> <picture> <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.webp" type="image/webp"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.png" alt="Design Notes"> </picture> </section>
-
-<section> <h2>Finished Proof</h2> <picture> <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Finished Proof"> </picture> </section>
-
-<!-- PERMISSION #1 — ORDER APPROVAL --> <section id="permission1"> <h2>Order Approval</h2>
+<section id="permission1" style="display:none;"> <h2>Order Approval</h2>
 
 <label id="orderPermissionLabel" class="dimmed big-text"> <input type="checkbox" id="order_permission" disabled> By selecting this box, you are granting us permission to produce this order. </label>
 
