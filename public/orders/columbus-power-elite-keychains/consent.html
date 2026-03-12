@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Approval & Logo Permission</title>
+  <title>Order Approval & Consent – Seymour.Ink</title>
+  <link rel="stylesheet" href="/styles.css">
 
+  <!-- Minimal, safe layout + scaling fixes -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    body.white-bg {
       margin: 0;
       padding: 0;
       background: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .site-header {
@@ -19,120 +20,231 @@
     }
 
     .site-logo {
-      width: 180px;
-      max-width: 80%;
+      max-width: 220px;
+      height: auto;
     }
 
     .consent-container {
-      max-width: 700px;
+      max-width: 900px;
       margin: 30px auto;
-      background: #fff;
-      padding: 25px;
+      padding: 24px;
+      background: #ffffff;
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
 
-    h1 {
+    .consent-container h1 {
+      margin-top: 0;
       text-align: center;
-      margin-bottom: 20px;
     }
 
-    img {
+    .consent-container section {
+      margin-bottom: 24px;
+    }
+
+    picture,
+    picture img {
+      display: block;
       max-width: 100%;
       height: auto;
+      margin: 0 auto 16px auto;
+    }
+
+    video {
       display: block;
-      margin: 0 auto 20px auto;
-    }
-
-    .notes-block {
-      margin-top: 20px;
-      padding: 15px;
-      background: #fafafa;
-      border: 1px solid #ccc;
+      max-width: 100%;
+      height: auto;
       border-radius: 8px;
+      overflow: hidden;
     }
 
-    .checkbox-row {
-      margin-top: 25px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.1rem;
+    label {
+      display: block;
+      margin-top: 8px;
+      line-height: 1.4;
     }
 
     input[type="checkbox"] {
-      width: 22px;
-      height: 22px;
+      margin-right: 8px;
+      transform: scale(1.2);
     }
 
-    /* Only shown AFTER checkbox */
-    #final-section {
-      display: none;
-      margin-top: 25px;
-      padding: 15px;
-      background: #f0f0f0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+    .learn-more {
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    .learn-more a {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    .signature-block label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .signature-block input {
+      width: 100%;
+      max-width: 400px;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      background: #111827;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background: #0b1220;
     }
   </style>
 </head>
+<body class="white-bg">
+<header class="site-header">
+  <a href="/"><img src="/images/seymour-ink-logo.png" class="site-logo" alt="Seymour.Ink logo"></a>
+</header>
 
-<body>
+<main class="consent-container">
 
-  <header class="site-header">
-    <a href="/"><img src="/organizations/columbus-power-elite/logo.webp" class="site-logo"></a>
-  </header>
+<h1>Order Approval & Logo Permission</h1>
 
-  <main class="consent-container">
+<section>
+  <h2>Your Order</h2>
+  <p><strong>Organization:</strong> Columbus Power Elite Cheer</p>
+  <p><strong>Items:</strong> 80 custom keychains</p>
+  <p><strong>Design Fee:</strong> Waived ($50 value)</p>
+  <p><strong>Pricing:</strong> Bulk pricing applied</p>
+  <p><strong>Shipping:</strong> Waived (hand delivery)</p>
+</section>
 
-    <h1>Order Approval & Logo Permission</h1>
+<section>
+  <h2>Your Logo</h2>
+  <picture>
+    <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo.webp" type="image/webp">
+    <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo-original.png" alt="Uploaded Logo">
+  </picture>
+</section>
 
-    <p><strong>Organization:</strong> Columbus Power Elite</p>
-    <p><strong>Items:</strong> 80 custom keychains</p>
-    <p><strong>Design Fee:</strong> Waived ($50 value)</p>
-    <p><strong>Pricing:</strong> Bulk pricing applied</p>
-    <p><strong>Shipping:</strong> Waived (hand delivery)</p>
+<section>
+  <h2>Details</h2>
+  <picture>
+    <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.webp" type="image/webp">
+    <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.png" alt="Design Notes">
+  </picture>
+</section>
 
-    <!-- Proof image -->
-    <img src="/organizations/columbus-power-elite/proof.webp" alt="Product mockup">
+<section>
+  <h2>Finished Proof</h2>
+  <picture>
+    <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp">
+    <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Finished Proof">
+  </picture>
+</section>
 
-    <!-- ⭐ NOTES BLOCK — ALWAYS VISIBLE -->
-    <div class="notes-block">
-      <h2>Notes</h2>
+<!-- PERMISSION #1 -->
+<section id="permission1">
+  <h2>Permission for This Order</h2>
 
-      <p><strong>Dakota</strong></p>
-      <p>Using overture colors – light blue for the top P, then silver, then black for the bottom layer.</p>
-      <p>We need 80 by March 22nd.</p>
+  <label>
+    <input type="checkbox" id="order_permission" required>
+    By selecting this box, you are granting us permission to produce this order.
+  </label>
 
-      <!-- Notes image -->
-      <img src="/organizations/columbus-power-elite/notes.webp" alt="Notes image">
+  <div class="learn-more">
+    <a href="/contracts/learn-order-permission.html" target="_blank">Learn more</a>
+  </div>
+</section>
 
-      <p><strong>Digital Blue</strong></p>
-      <p><strong>Silver Silk</strong></p>
-      <p><strong>Carbon Black</strong></p>
-    </div>
+<!-- PERMISSION #2 (hidden until #1 is checked) -->
+<section id="permission2" style="display:none;">
+  <h2>Optional Marketing Permission</h2>
 
-    <!-- Checkbox -->
-    <div class="checkbox-row">
-      <input type="checkbox" id="approve">
-      <label for="approve">I approve this order</label>
-    </div>
+  <label>
+    <input type="checkbox" id="marketing_permission">
+    With your permission, we can offer this product for sale on our website where you could earn money for your organization through future sales.
+  </label>
 
-    <!-- ⭐ FINAL SECTION (only if you had one) -->
-    <div id="final-section">
-      <p>Your approval has been recorded.</p>
-    </div>
+  <div class="learn-more">
+    <a href="/contracts/learn-marketing-permission.html" target="_blank">Learn more</a>
+  </div>
+</section>
 
-  </main>
+<!-- PERMISSION #3 (hidden until #2 is checked) -->
+<section id="permission3" style="display:none;">
+  <h2>Allow Variations</h2>
+  <label>
+    <input type="checkbox" id="variation_permission">
+    Allow color/texture variations
+  </label>
+</section>
 
-  <script>
-    const cb = document.getElementById('approve');
-    const finalBox = document.getElementById('final-section');
+<!-- VIDEO SECTION (hidden until #3 is checked) -->
+<section id="videoSection" style="display:none;">
+  <h2>Other Products Using Your Logo</h2>
 
-    cb.addEventListener('change', () => {
-      finalBox.style.display = cb.checked ? 'block' : 'none';
-    });
-  </script>
+  <video id="polaroidVideo" width="100%" autoplay loop muted playsinline>
+    <source src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/polor.mp4" type="video/mp4">
+  </video>
+</section>
+
+<section>
+  <h2>Earnings, Logo Tier & Store Credits</h2>
+  <p>
+    Earnings are based on your logo tier and tracked as store credits.
+    <a href="/contracts/earnings-and-tiers.html" target="_blank">Earnings & Tiers</a>
+    <a href="/contracts/store-credit-policy.html" target="_blank">Store Credit Policy</a>
+  </p>
+  <label><input type="checkbox" required> I understand how logo tiers and store credits work.</label>
+</section>
+
+<section class="signature-block">
+  <h2>Confirmation</h2>
+  <label>Name<input type="text" required></label>
+  <label>Email<input type="email" required></label>
+</section>
+
+<button type="submit">Submit Approval</button>
+
+</main>
+
+<script>
+  const orderPermission = document.getElementById('order_permission');
+  const marketingPermission = document.getElementById('marketing_permission');
+  const variationPermission = document.getElementById('variation_permission');
+
+  const permission2 = document.getElementById('permission2');
+  const permission3 = document.getElementById('permission3');
+  const videoSection = document.getElementById('videoSection');
+  const video = document.getElementById('polaroidVideo');
+
+  orderPermission.addEventListener('change', () => {
+    permission2.style.display = orderPermission.checked ? 'block' : 'none';
+  });
+
+  marketingPermission.addEventListener('change', () => {
+    permission3.style.display = marketingPermission.checked ? 'block' : 'none';
+  });
+
+  variationPermission.addEventListener('change', () => {
+    if (variationPermission.checked) {
+      videoSection.style.display = 'block';
+      video.play();
+    } else {
+      video.pause();
+      videoSection.style.display = 'none';
+    }
+  });
+</script>
 
 </body>
 </html>
