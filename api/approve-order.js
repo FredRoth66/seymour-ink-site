@@ -1,4 +1,4 @@
-eexport default async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -8,12 +8,11 @@ eexport default async function handler(req, res) {
       name,
       phone,
       email,
-      order,
-      approved,
-      marketing_permission
+      organization,
+      marketingPermission,
+      orderPermission,
+      timestamp
     } = req.body;
-
-    const timestamp = new Date().toISOString();
 
     const message = `
 New Order Approval
@@ -21,9 +20,9 @@ New Order Approval
 Name: ${name}
 Phone: ${phone}
 Email: ${email}
-Order: ${order}
-Approved: ${approved}
-Marketing: ${marketing_permission}
+Organization: ${organization}
+Approved: ${orderPermission}
+Marketing: ${marketingPermission}
 Time: ${timestamp}
     `.trim();
 
