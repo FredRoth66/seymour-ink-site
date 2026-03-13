@@ -33,6 +33,14 @@ h2 {
     font-weight: 700;
 }
 
+.divider {
+    border: none;
+    height: 4px;
+    background: #e0e0e0;
+    width: 80%;
+    margin: 2rem auto;
+}
+
 section {
     text-align: center;
 }
@@ -177,8 +185,9 @@ img, video {
 </section>
 
 <section id="yourOrderSection" style="display:none;">
+    <hr class="divider">
     <h3 style="font-size: 3rem; font-weight: 700;">Your Order</h3>
-
+<hr class="divider">
     <h3 style="font-size: 3rem; font-weight: 700;">Organization:</h3>
     <p style="font-size: 3rem; font-weight: 400;">Columbus Power Elite Cheer</p>
 
@@ -190,18 +199,13 @@ img, video {
 
     <h3 style="font-size: 3rem; font-weight: 700;">Discount:</h3>
     <p style="font-size: 3rem; font-weight: 400;">Bulk pricing applied</p>
-
-    <h3 style="font-size: 3rem; font-weight: 700;">Piece Price: 1.60</h3>
-    <p style="font-size: 3rem; font-weight: 700;">Quantity: 80</p>
-    <p style="font-size: 3rem; font-weight: 700;">SubTotal: 128.00</p>
-    <p style="font-size: 3rem; font-weight: 700;">Tax: 8.96</p>
-    <p style="font-size: 3rem; font-weight: 700;">Total: 136.96</p>
-
-    <h3 style="font-size: 3rem; font-weight: 700;">Shipping:</h3>
-    <p style="font-size: 3rem; font-weight: 400;">Waived (hand delivery)</p>
-</section>
-
-<section id="logoSection" style="display:none;">
+<hr class="divider">
+    <h3 style="font-size: 3rem; font-weight: 700;">Piece Price: <span style="font-weight: 400;">1.60</span>
+    <p style="font-size: 3rem; font-weight: 700;">Quantity: <span style="font-weight: 400;">80</span></p>
+    <p style="font-size: 3rem; font-weight: 700;">SubTotal: <span style="font-weight: 400;">128.00</span></p>
+    <p style="font-size: 3rem; font-weight: 700;">Tax: <span style="font-weight: 400;">8.96</span></p>
+    <p style="font-size: 3rem; font-weight: 700;">Total: <span style="font-weight: 400;">136.96</span></p>
+    <p style="font-size: 3rem; font-weight: 700;">Shipping: <span style="font-weight: 400;">free local delivery</span></p>
     <h2>Your Logo</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo.webp" type="image/webp">
@@ -223,23 +227,24 @@ img, video {
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp">
         <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Finished Proof">
     </picture>
+    <hr class="divider">
 </section>
 
 <section id="invoiceSection" style="display:none;">
     <h2>How would you like your invoice sent?</h2>
 
     <label class="big-text">
-        Text Message
+        Enter phone No. for text:
         <input type="tel" id="invoice_phone" placeholder="Phone number">
     </label>
 
     <label class="big-text">
-        Email
+        Enter email for email:
         <input type="email" id="invoice_email" placeholder="Email address">
     </label>
 
-    <p class="small-note">Phone number or email required before continuing.</p>
-
+    <p class="small-note">Note: Phone number or email required before continuing.</p>
+<hr class="divider">
     <button id="invoiceSubmitBtn" disabled
         style="margin-top: 3rem; font-size: 2.8rem; padding: 20px 30px; border-radius: 14px; background-color: black; color: white; border: none; cursor: pointer; font-weight: 800;">
         Save & Continue
@@ -251,7 +256,7 @@ img, video {
 
     <label id="orderPermissionLabel" class="dimmed big-text">
         <input type="checkbox" id="order_permission" disabled>
-        By selecting this box, you are granting us permission to produce this order.
+          By selecting this box, you are granting us permission to produce this order.
     </label>
 
     <p class="small-note">Phone number or email required before approving.</p>
