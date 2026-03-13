@@ -5,8 +5,8 @@
   "scripts": {
     "build": "",
     "start": ""
-  },
-  "dependencies": {
-    "twilio": "^4.23.0"
-  }
+
+ "dependencies": {
+  "twilio": "^4.23.0",
+  "@vercel/blob": "latest"
 }

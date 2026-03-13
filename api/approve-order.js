@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { put } from "@vercel/blob";
 import twilio from "twilio";
 
 export default async function handler(req, res) {
@@ -31,21 +30,15 @@ export default async function handler(req, res) {
       user_agent: req.headers["user-agent"]
     };
 
-    const folderPath = path.join(
-      process.cwd(),
-      "public_communications",
-      "new-orders"
-    );
-
-    if (!fs.existsSync(folderPath)) {
-      fs.mkdirSync(folderPath, { recursive: true });
-    }
-
+    // ---------- SAVE JSON TO VERCEL BLOB ----------
     const filename = `approval-${timestamp.replace(/[:.]/g, "-")}.json`;
-    const filePath = path.join(folderPath, filename);
 
-    fs.writeFileSync(filePath, JSON.stringify(record, null, 2));
+    await put(`new-orders/${filename}`, JSON.stringify(record, null, 2), {
+      access: "public",
+      contentType: "application/json"
+    });
 
+    // ---------- SEND TWILIO SMS ----------
     const client = twilio(
       process.env.TWILIO_ACCOUNT_SID,
       process.env.TWILIO_AUTH_TOKEN
