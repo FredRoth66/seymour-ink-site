@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+eexport default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -27,7 +27,6 @@ Marketing: ${marketing_permission}
 Time: ${timestamp}
     `.trim();
 
-    // Send the user to a mailto link with the data
     const mailto = `mailto:fred.roth@gmail.com?subject=New Order Approval&body=${encodeURIComponent(message)}`;
 
     return res.status(200).json({ success: true, redirect: mailto });
