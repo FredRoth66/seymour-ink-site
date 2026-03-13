@@ -326,9 +326,7 @@ function smoothScrollTo(targetY, duration = 900) {
         if (!start) start = timestamp;
         const time = timestamp - start;
         const percent = Math.min(time / duration, 1);
-
         window.scrollTo(0, startY + diff * percent);
-
         if (time < duration) requestAnimationFrame(step);
     }
 
@@ -378,7 +376,6 @@ function checkInvoiceFields() {
     const phone = document.getElementById('invoice_phone').value.trim();
     const email = document.getElementById('invoice_email').value.trim();
     const btn = document.getElementById('invoiceSubmitBtn');
-
     btn.disabled = !(phone || email);
 }
 
@@ -388,12 +385,10 @@ document.getElementById('invoice_email').addEventListener('input', checkInvoiceF
 document.getElementById('invoiceSubmitBtn').addEventListener('click', () => {
     const phone = document.getElementById('invoice_phone').value.trim();
     const email = document.getElementById('invoice_email').value.trim();
-
     if (!phone && !email) return;
 
     const permissionSection = document.getElementById('permission1');
     permissionSection.style.display = 'block';
-
     scrollToSection('permission1', 900);
 });
 
@@ -433,7 +428,7 @@ function enableOrderPermission() {
 
 document.getElementById('invoice_phone').addEventListener('input', enableOrderPermission);
 document.getElementById('invoice_email').addEventListener('input', enableOrderPermission);
-<script>
+
 document.getElementById('submitBtn').addEventListener('click', async function (e) {
     e.preventDefault();
 
