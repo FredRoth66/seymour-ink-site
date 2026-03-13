@@ -54,9 +54,33 @@ img, video { max-width: 82%; } } </style> </head>
 
 if (!nameValue) { nameError.style.display = 'block'; permissionSection.style.display = 'none'; mediaSection.style.display = 'none'; permission2.style.display = 'none'; submitBtn.style.display = 'none'; yourOrderSection.style.display = 'none'; return; }
 
-nameError.style.display = 'none'; permissionSection.style.display = 'block'; yourOrderSection.style.display = 'block'; mediaSection.style.display = 'none'; permission2.style.display = 'none'; submitBtn.style.display = 'none'; permissionSection.scrollIntoView({ behavior: 'smooth' }); }); </script> <p id="nameError" style="color: red; font-size: 2.4rem; margin-top: 1rem; display: none;">Please enter a name to continue.</p> </section>
+nameError.style.display = 'none'; permissionSection.style.display = 'block'; yourOrderSection.style.display = 'block'; // Reset other sections hidden by default mediaSection.style.display = 'none'; permission2.style.display = 'none'; submitBtn.style.display = 'none'; // Scroll to the permission section permissionSection.scrollIntoView({ behavior: 'smooth' }); }); </script> <p id="nameError" style="color: red; font-size: 2.4rem; margin-top: 1rem; display: none;">Please enter a name to continue.</p> </section>
 
-<section id="permission1" style="display:none;"> <h2>Order Approval</h2> <label id="orderPermissionLabel" class="dimmed big-text"> <input type="checkbox" id="order_permission" disabled> By selecting this box, you are granting us permission to produce this order. </label> <p class="small-note">Phone number or email required before approving.</p> <div class="learn-more"> <a href="/contracts/learn-order-permission.html" target="_blank">Learn more</a> </div> <div id="yourOrderSection" style="margin-top: 2rem; display:block;"> <h3>Your Order</h3> <p class="cost-line">Cost Breakdown:</p> <ul style="list-style-type:none; padding-left: 0; font-size: 2.6rem; font-weight: 700;"> <li>80 pieces at $1.60 each</li> <li>Tax: $0.70</li> <li><strong>Total: $130.70</strong></li> </ul> <div id="orderImages" style="margin-top: 1.6rem;"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Proof Image"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/item1.png" alt="Item Image 1"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/item2.png" alt="Item Image 2"> </div> <label for="invoice_email" style="display:block; margin-top: 2rem; font-size: 2.8rem; font-weight: 700;">Email:</label> <input type="email" id="invoice_email" placeholder="Your email address" required> <label for="invoice_phone" style="display:block; margin-top: 2rem; font-size: 2.8rem; font-weight: 700;">Phone:</label> <input type="tel" id="invoice_phone" placeholder="Your phone number" required> </div> </section>
+
+
+<section> <h2>Your Order</h2> <p><strong>Organization:</strong> Columbus Power Elite Cheer</p> <p><strong>Items:</strong> 80 custom keychains</p> <p><strong>Design Fee:</strong> Waived ($50 value)</p> <p><strong>Pricing:</strong> Bulk pricing applied</p> <p><strong>Shipping:</strong> Waived (hand delivery)</p> </section>
+
+<!-- INVOICE DELIVERY BLOCK --> <section id="invoiceSection"> <h2>How would you like your invoice sent?</h2>
+
+<label class="big-text"> Text Message <input type="tel" id="invoice_phone" placeholder="Phone number"> </label>
+
+<label class="big-text"> Email <input type="email" id="invoice_email" placeholder="Email address"> </label>
+
+<p class="small-note"> Phone number or email required before approving. </p> </section>
+
+<section> <h2>Your Logo</h2> <picture> <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo.webp" type="image/webp"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo-original.png" alt="Uploaded Logo"> </picture> </section>
+
+<section> <h2>Details</h2> <picture> <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.webp" type="image/webp"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.png" alt="Design Notes"> </picture> </section>
+
+<section> <h2>Finished Proof</h2> <picture> <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp"> <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Finished Proof"> </picture> </section>
+
+<!-- PERMISSION #1 — ORDER APPROVAL --> <section id="permission1"> <h2>Permission for This Order</h2>
+
+<label id="orderPermissionLabel" class="dimmed big-text"> <input type="checkbox" id="order_permission" disabled> By selecting this box, you are granting us permission to produce this order. </label>
+
+<p class="small-note"> Phone number or email required before approving. </p>
+
+<div class="learn-more"> <a href="/contracts/learn-order-permission.html" target="_blank">Learn more</a> </div> </section>
 
 <!-- MEDIA SECTION (revealed after #1) --> <section id="mediaSection" style="display:none;"> <img id="inUseImage" src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/in-use.png" alt="Product In Use">
 
@@ -68,9 +92,14 @@ nameError.style.display = 'none'; permissionSection.style.display = 'block'; you
 
 <div class="learn-more"> <a href="/contracts/earnings-and-tiers.html" target="_blank">Earnings & Tiers</a><br> <a href="/contracts/store-credit-policy.html" target="_blank">Store Credit Policy</a><br> <a href="/contracts/learn-marketing-permission.html" target="_blank">How Store Setup Works</a> </div> </section>
 
-<!-- SUBMIT BUTTON --> <button id="submitBtn">Submit Approval</button> <div id="bottomPadding"></div>
+<!-- SUBMIT BUTTON --> <button id="submitBtn">Submit Approval</button>
 
 </main>
+
+
+
+
+
 
 <script> function smoothScrollTo(targetY, duration = 900) { const startY = window.scrollY; const diff = targetY - startY; let start;
 
