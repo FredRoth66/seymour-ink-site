@@ -152,7 +152,22 @@ img, video {
 
 <h1 style="text-align:center; margin-top: 2rem;">Order Approval and Permission</h1>
 
-<section id="nameEntrySection" style="margin-top: 3rem; text-align: center;"> <p style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.6rem;">Please enter your name to find your order:</p> <input type="text" id="nameInput" placeholder="Your full name" style="font-size: 2.8rem; padding: 18px 22px; width: 100%; max-width: 400px; border-radius: 14px; border: 1px solid #ccc; text-align: center; font-weight: 600;"> <button id="searchNameBtn" style="margin-top: 2rem; font-size: 2.8rem; padding: 18px 30px; border-radius: 14px; background-color: black; color: white; border: none; cursor: pointer; font-weight: 800;">Search</button> <p id="nameError" style="color: red; font-size: 2.4rem; margin-top: 1rem; display: none;">Please enter a name to continue.</p> </section>
+<section id="nameEntrySection" style="margin-top: 3rem; text-align: center;"> <p style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.6rem;">Please enter your name to find your order:</p> <input type="text" id="nameInput" placeholder="Your full name" style="font-size: 2.8rem; padding: 18px 22px; width: 100%; max-width: 400px; border-radius: 14px; border: 1px solid #ccc; text-align: center; font-weight: 600;"> <button id="searchNameBtn" style="margin-top: 2rem; font-size: 2.8rem; padding: 18px 30px; border-radius: 14px; background-color: black; color: white; border: none; cursor: pointer; font-weight: 800;">Search</button>
+
+<script> document.getElementById('searchNameBtn').addEventListener('click', function() { const nameInput = document.getElementById('nameInput'); const nameError = document.getElementById('nameError'); const permissionSection = document.getElementById('permission1'); const nameValue = nameInput.value.trim();
+
+if (!nameValue) {
+  nameError.style.display = 'block';
+  permissionSection.style.display = 'none';
+  return;
+}
+
+nameError.style.display = 'none';
+permissionSection.style.display = 'block';
+// Scroll to the permission section
+permissionSection.scrollIntoView({ behavior: 'smooth' });
+
+}); </script> <p id="nameError" style="color: red; font-size: 2.4rem; margin-top: 1rem; display: none;">Please enter a name to continue.</p> </section>
 
 <section id="permission1" style="display:none;"> <h2>Order Approval</h2>
 
