@@ -1,3 +1,5 @@
+import nodemailer from "nodemailer";
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -14,6 +16,7 @@ export default async function handler(req, res) {
       timestamp
     } = req.body;
 
+    // Build the message text
     const message = `
 New Order Approval
 -------------------
@@ -21,14 +24,31 @@ Name: ${name}
 Phone: ${phone}
 Email: ${email}
 Organization: ${organization}
-Approved: ${orderPermission}
-Marketing: ${marketingPermission}
+Approved Order: ${orderPermission}
+Marketing Permission: ${marketingPermission}
 Time: ${timestamp}
     `.trim();
 
-    const mailto = `mailto:fred.roth@gmail.com?subject=New Order Approval&body=${encodeURIComponent(message)}`;
+    // Create SMTP transporter using Porkbun settings
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: false, // STARTTLS
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
+      }
+    });
 
-    return res.status(200).json({ success: true, redirect: mailto });
+    // Send the email (which becomes a text via vtext)
+    await transporter.sendMail({
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO, // 8129292115@vtext.com
+      subject: "New Order Approval",
+      text: message
+    });
+
+    return res.status(200).json({ success: true });
 
   } catch (err) {
     console.error("Approval error:", err);
