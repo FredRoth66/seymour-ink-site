@@ -433,6 +433,35 @@ function enableOrderPermission() {
 
 document.getElementById('invoice_phone').addEventListener('input', enableOrderPermission);
 document.getElementById('invoice_email').addEventListener('input', enableOrderPermission);
+document.getElementById('submitBtn').addEventListener('click', async function (e) {
+    e.preventDefault();
+    const payload = {
+        name: document.getElementById('nameInput')?.value?.trim() || '',
+        phone: document.getElementById('invoice_phone')?.value?.trim() || '',
+        email: document.getElementById('invoice_email')?.value?.trim() || '',
+        organization: document.querySelector('#yourOrderSection h3 + p')?.textContent?.trim() || '',
+        marketingPermission: !!document.getElementById('marketing_permission')?.checked,
+        orderPermission: !!document.getElementById('order_permission')?.checked,
+        timestamp: new Date().toISOString()
+    };
+    console.log('Submitting payload', payload);
+
+    try {
+        const res = await fetch('/api/approve-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        console.log('Server response', result);
+        this.disabled = true;
+        this.textContent = 'Submitted';
+    } catch (err) {
+        console.error('Submit error', err);
+        alert('Submission failed — see console.');
+    }
+});
+
 </script>
 
 </body>
