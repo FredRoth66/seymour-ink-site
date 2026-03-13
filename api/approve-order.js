@@ -1,5 +1,3 @@
-import twilio from "twilio";
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -17,29 +15,22 @@ export default async function handler(req, res) {
 
     const timestamp = new Date().toISOString();
 
-    const smsBody = `
+    const message = `
 New Order Approval
+-------------------
 Name: ${name}
+Phone: ${phone}
+Email: ${email}
 Order: ${order}
 Approved: ${approved}
 Marketing: ${marketing_permission}
-Phone: ${phone || "none"}
-Email: ${email || "none"}
 Time: ${timestamp}
     `.trim();
 
-    const client = twilio(
-      process.env.TWILIO_ACCOUNT_SID,
-      process.env.TWILIO_AUTH_TOKEN
-    );
+    // Send the user to a mailto link with the data
+    const mailto = `mailto:fred.roth@gmail.com?subject=New Order Approval&body=${encodeURIComponent(message)}`;
 
-    await client.messages.create({
-      body: smsBody,
-      from: process.env.TWILIO_PHONE_NUMBER,
-      to: process.env.TWILIO_TO_NUMBER
-    });
-
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, redirect: mailto });
 
   } catch (err) {
     console.error("Approval error:", err);
