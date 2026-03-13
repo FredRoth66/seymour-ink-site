@@ -14,7 +14,7 @@ body {
     margin-right: auto;
     font-size: 2.5rem;
     line-height: 1.8;
-    text-align: justify;
+    text-align: center;
     text-align-last: center;
 }
 
@@ -31,6 +31,10 @@ h2 {
     margin-bottom: 1.4rem;
     text-align: center;
     font-weight: 700;
+}
+
+section {
+    text-align: center;
 }
 
 #permission1 h2 {
@@ -117,10 +121,6 @@ img, video {
     font-weight: 800;
 }
 
-#bottomPadding {
-    height: 220px;
-}
-
 .dimmed {
     opacity: 0.35;
     pointer-events: none;
@@ -177,18 +177,18 @@ img, video {
 </section>
 
 <section id="yourOrderSection" style="display:none;">
-    <h3 style="text-align:center; font-size: 3rem; font-weight: 700;">Your Order</h3>
+    <h3 style="font-size: 3rem; font-weight: 700;">Your Order</h3>
 
-    <h3 style="text-align:center; font-size: 3rem; font-weight: 700;">Organization:</h3>
+    <h3 style="font-size: 3rem; font-weight: 700;">Organization:</h3>
     <p>Columbus Power Elite Cheer</p>
 
-    <h3 style="text-align:center; font-size: 3rem; font-weight: 700;">Items:</h3>
+    <h3 style="font-size: 3rem; font-weight: 700;">Items:</h3>
     <p>80 custom keychains</p>
 
-    <h3 style="text-align:center; font-size: 3rem; font-weight: 700;">Design Fee:</h3>
+    <h3 style="font-size: 3rem; font-weight: 700;">Design Fee:</h3>
     <p>Waived ($50 value)</p>
 
-    <h3 style="text-align:center; font-size: 3rem; font-weight: 700;">Pricing:</h3>
+    <h3 style="font-size: 3rem; font-weight: 700;">Pricing:</h3>
     <p>Bulk pricing applied</p>
 
     <p><strong>Shipping:</strong> Waived (hand delivery)</p>
@@ -237,29 +237,6 @@ img, video {
         style="margin-top: 3rem; font-size: 2.8rem; padding: 20px 30px; border-radius: 14px; background-color: black; color: white; border: none; cursor: pointer; font-weight: 800;">
         Save & Continue
     </button>
-</section>
-<section id="logoSection" style="display:none;">
-    <h2>Your Logo</h2>
-    <picture>
-        <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo.webp" type="image/webp">
-        <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo-original.png" alt="Uploaded Logo">
-    </picture>
-</section>
-
-<section id="detailsSection" style="display:none;">
-    <h2>Details</h2>
-    <picture>
-        <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.webp" type="image/webp">
-        <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.png" alt="Design Notes">
-    </picture>
-</section>
-
-<section id="proofSection" style="display:none;">
-    <h2>Finished Proof</h2>
-    <picture>
-        <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp">
-        <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Finished Proof">
-    </picture>
 </section>
 
 <section id="permission1" style="display:none;">
@@ -354,10 +331,10 @@ document.getElementById('searchNameBtn').addEventListener('click', function () {
 
     nameError.style.display = 'none';
     yourOrderSection.style.display = 'block';
-    invoiceSection.style.display = 'block';
     logoSection.style.display = 'block';
     detailsSection.style.display = 'block';
     proofSection.style.display = 'block';
+    invoiceSection.style.display = 'block';
 
     scrollToSection('yourOrderSection', 900);
 });
