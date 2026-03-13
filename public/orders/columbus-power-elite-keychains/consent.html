@@ -116,8 +116,10 @@ img, video {
 }
 
 #submitBtn {
-    margin-top: 80px;
-    width: 100%;
+    margin: 80px auto 0;
+    display: block;
+    width: auto;
+    max-width: 360px;
     padding: 30px;
     font-size: 3rem;
     background: rgb(212, 98, 4);
@@ -125,7 +127,6 @@ img, video {
     border: none;
     border-radius: 18px;
     cursor: pointer;
-    display: none;
     font-weight: 800;
 }
 
@@ -152,6 +153,20 @@ img, video {
         max-width: 82%;
     }
 }
+
+/* center text only */
+.section-center { text-align: center; }
+
+/* center horizontally + vertically with flexbox */
+.section-center-flex {
+  display: flex;
+  flex-direction: column; /* keep items stacked */
+  justify-content: center; /* vertical */
+  align-items: center;     /* horizontal */
+  text-align: center;      /* for text inside children */
+  min-height: 200px;       /* adjust as needed */
+}
+
 </style>
 </head>
 
@@ -166,7 +181,7 @@ img, video {
 
 <h1 style="margin-top: 2rem;">Order Approval and Permission</h1>
 
-<section id="nameEntrySection" style="margin-top: 3rem;">
+<section id="nameEntrySection"  class="section-center-flex" style="margin-top: 3rem;">
     <p style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.6rem;">
         Please enter your name to find your order:
     </p>
@@ -184,7 +199,7 @@ img, video {
     </p>
 </section>
 
-<section id="yourOrderSection" style="display:none;">
+<section id="yourOrderSection" class="section-center-flex" style="display:none;">
     <hr class="divider">
     <h3 style="font-size: 3rem; font-weight: 700;">Your Order</h3>
 <hr class="divider">
@@ -215,7 +230,7 @@ img, video {
     </div>
 </section>
 
-<section id="detailsSection" style="display:none;">
+<section id="detailsSection" class="section-center-flex" style="display:none;">
     <h2>Details</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.webp" type="image/webp">
@@ -223,7 +238,7 @@ img, video {
     </picture>
 </section>
 
-<section id="proofSection" style="display:none;">
+<section id="proofSection" class="section-center-flex" style="display:none;">
     <h2>Finished Proof</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp">
@@ -232,7 +247,7 @@ img, video {
     <hr class="divider">
 </section>
 
-<section id="invoiceSection" style="display:none;">
+<section id="invoiceSection" class="section-center-flex" style="display:none;">
     <h2>How would you like your invoice sent?</h2>
 
     <label class="big-text">
@@ -253,7 +268,7 @@ img, video {
     </button>
 </section>
 
-<section id="permission1" style="display:none;">
+<section id="permission1" class="section-center-flex" style="display:none;">
     <h2>Permission for This Order</h2>
 
     <label id="orderPermissionLabel" class="dimmed big-text">
@@ -268,7 +283,7 @@ img, video {
     </div>
 </section>
 
-<section id="mediaSection" style="display:none;">
+<section id="mediaSection" class="section-center-flex" style="display:none;">
     <img id="inUseImage" src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/in-use.png" alt="Product In Use">
 
     <video id="polaroidVideo" autoplay loop muted playsinline>
@@ -276,12 +291,16 @@ img, video {
     </video>
 </section>
 
-<section id="permission2" style="display:none;">
-    <h2>Optional Marketing Permission</h2>
+<section id="permission2" class="section-center-flex" style="display:none;">
+   <h2>Optional Marketing Permission</h2>
+   <h2>With your permission, Seymour.Ink, will to use this "logo" to set up an online store branding it on multiple products</h2>
+   <h2>Your Organization, Columbus Power Elite, will earn a percentage of the proceeds from products sold featuring your "logo".</h2>
+   <h2>You can scale your profits and launch sales whenever you want.</h2>
+   <h2>Seymour.Ink will handle store maintenance, product posts, sales, fulfillment and customer service.</h2>
 
     <label class="big-text">
         <input type="checkbox" id="marketing_permission">
-        With your permission, we can set up a store for your organization with additional branded products.
+        Build my online store
     </label>
 
     <div class="learn-more">
