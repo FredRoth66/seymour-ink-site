@@ -215,7 +215,7 @@ img, video {
     </button>
 </section>
 
-<section>
+<section id="logoSection" style="display:none;">
     <h2>Your Logo</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo.webp" type="image/webp">
@@ -223,7 +223,7 @@ img, video {
     </picture>
 </section>
 
-<section>
+<section id="detailsSection" style="display:none;">
     <h2>Details</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.webp" type="image/webp">
@@ -231,7 +231,7 @@ img, video {
     </picture>
 </section>
 
-<section>
+<section id="proofSection" style="display:none;">
     <h2>Finished Proof</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp">
@@ -315,17 +315,26 @@ document.getElementById('searchNameBtn').addEventListener('click', function () {
 
     const yourOrderSection = document.getElementById('yourOrderSection');
     const invoiceSection = document.getElementById('invoiceSection');
+    const logoSection = document.getElementById('logoSection');
+    const detailsSection = document.getElementById('detailsSection');
+    const proofSection = document.getElementById('proofSection');
 
     if (!nameValue) {
         nameError.style.display = 'block';
         yourOrderSection.style.display = 'none';
         invoiceSection.style.display = 'none';
+        logoSection.style.display = 'none';
+        detailsSection.style.display = 'none';
+        proofSection.style.display = 'none';
         return;
     }
 
     nameError.style.display = 'none';
     yourOrderSection.style.display = 'block';
     invoiceSection.style.display = 'block';
+    logoSection.style.display = 'block';
+    detailsSection.style.display = 'block';
+    proofSection.style.display = 'block';
 
     scrollToSection('yourOrderSection', 900);
 });
