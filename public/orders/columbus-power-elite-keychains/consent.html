@@ -117,7 +117,7 @@ img, video {
 
 #submitBtn {
     margin: 80px auto 0;
-    display: block;
+    display: none; /* hide initially; JS toggles this to 'block' */
     width: auto;
     max-width: 360px;
     padding: 30px;
@@ -310,7 +310,9 @@ img, video {
     </div>
 </section>
 
-<button id="submitBtn">Submit Approval</button>
+<section class="section-center">
+    <button id="submitBtn">Submit Approval</button>
+</section>
 
 </main>
 
