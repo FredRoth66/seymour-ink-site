@@ -5,6 +5,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Ensure body is parsed even if coming from a static HTML page
+  if (!req.body || typeof req.body === 'string') {
+    try {
+      req.body = JSON.parse(req.body);
+    } catch (e) {
+      console.error('Body parse error:', e);
+    }
+  }
+
   const { name, email, message } = req.body || {};
 
   if (!name || !email || !message) {
