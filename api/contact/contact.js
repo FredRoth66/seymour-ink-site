@@ -1,5 +1,3 @@
-// /api/contact.js
-
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
@@ -24,13 +22,13 @@ export default async function handler(req, res) {
       }
     });
 
-    const smsAddress = process.env.VERIZON_SMS_ADDRESS; // e.g. 8129292115@vtext.com
+    const toAddress = process.env.EMAIL_TO;
 
     const textBody = `New message from Seymour.Ink:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
 
     await transporter.sendMail({
       from: process.env.SMTP_FROM,
-      to: smsAddress,
+      to: toAddress,
       subject: 'New Seymour.Ink message',
       text: textBody
     });
