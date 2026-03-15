@@ -5,7 +5,7 @@
 body.white-bg {
   background-image: url('/images/backgrounds/background-texture.webp');
   background-repeat: repeat;
-  /* background-size: 512px 512px; */
+  background-size: 512px 512px; 
   color: #111;
   font-family: Arial, sans-serif;
   margin: 0;
