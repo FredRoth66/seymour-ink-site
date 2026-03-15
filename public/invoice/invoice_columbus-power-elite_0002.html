@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seymour.Ink Invoice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .invoice-container {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem;
+    }
+    .invoice-logo {
+      width: 180px;
+      margin-bottom: 1rem;
+    }
+    .invoice-image {
+      width: 100%;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .breakdown {
+      text-align: left;
+      margin: 2rem auto;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+    .pay-button {
+      display: inline-block;
+      background: black;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1.6rem;
+      text-decoration: none;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body class="white-bg">
+
+  <div class="invoice-container">
+
+    <img src="/images/seymour-ink-logo.png" class="invoice-logo" alt="Seymour.Ink logo">
+
+    <h1>Your order is packed and ready for shipping.</h1>
+
+    <img src="/images/invoice_images/package_invoice_columbus-power-elite_0002.webp" class="invoice-image" alt="Packaged order">
+
+    <div class="breakdown">
+      <h2>Amount Breakdown</h2>
+      <p>80 pieces × $1.60 = <strong>$128.00</strong></p>
+      <p>Tax (0.07) = <strong>$8.96</strong></p>
+      <p><strong>Total: $136.96</strong></p>
+    </div>
+
+    <a href="YOUR_STRIPE_PAYMENT_LINK_HERE" class="pay-button" target="_blank">
+      Pay Now
+    </a>
+
+  </div>
+
+</body>
+</html>
