@@ -40,29 +40,47 @@
 <script>
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
   e.preventDefault();
+
   const status = document.getElementById('form-status');
   status.textContent = 'Sending...';
 
-  const payload = {
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
-    message: document.getElementById('message').value
-  };
+  // Collect values
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // Frontend validation
+  if (!name || !email || !message) {
+    status.textContent = 'Please fill out all fields.';
+    return;
+  }
+
+  // Build payload
+  const payload = { name, email, message };
+
+  // Debug log (you can remove later)
+  console.log("Sending payload:", payload);
 
   try {
     const res = await fetch('/api/contact', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(payload)
     });
 
+    // Handle response
     if (res.ok) {
       status.textContent = 'Message sent. Thank you.';
       this.reset();
     } else {
-      status.textContent = 'There was a problem sending your message.';
+      const data = await res.json().catch(() => ({}));
+      console.error("Server error:", data);
+      status.textContent = data.error || 'There was a problem sending your message.';
     }
   } catch (err) {
+    console.error("Fetch error:", err);
     status.textContent = 'There was a problem sending your message.';
   }
 });
