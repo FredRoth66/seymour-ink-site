@@ -6,17 +6,21 @@ export default async function handler(req, res) {
   }
 
   // Ensure body is parsed even if coming from a static HTML page
-  if (!req.body || typeof req.body === 'string') {
+  let body = req.body;
+
+  if (!body || typeof body === 'string') {
     try {
-      req.body = JSON.parse(req.body);
+      body = JSON.parse(body || '{}');
     } catch (e) {
       console.error('Body parse error:', e);
+      return res.status(400).json({ error: 'Invalid JSON body' });
     }
   }
 
-  const { name, email, message } = req.body || {};
+  const { name, email, message } = body;
 
   if (!name || !email || !message) {
+    console.error("Validation failed — missing fields:", body);
     return res.status(400).json({ error: 'Missing fields' });
   }
 
