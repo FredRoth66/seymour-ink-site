@@ -33,6 +33,14 @@ h2 {
     font-weight: 700;
 }
 
+.divider {
+    border: none;
+    height: 6px;
+    background: #d37b08;
+    width: 80%;
+    margin: 2rem auto;
+}
+
 section {
     text-align: center;
 }
@@ -84,7 +92,7 @@ input[type="checkbox"] {
     height: 36px;
     transform: scale(2.2);
     accent-color: black;
-    margin-right: 26px;
+    margin-right: 13px;
 }
 
 img, video {
@@ -108,16 +116,17 @@ img, video {
 }
 
 #submitBtn {
-    margin-top: 80px;
-    width: 100%;
+    margin: 80px auto 0;
+    display: none; /* hide initially; JS toggles this to 'block' */
+    width: auto;
+    max-width: 360px;
     padding: 30px;
     font-size: 3rem;
-    background: black;
-    color: white;
+    background: rgb(212, 98, 4);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 18px;
     cursor: pointer;
-    display: none;
     font-weight: 800;
 }
 
@@ -144,6 +153,20 @@ img, video {
         max-width: 82%;
     }
 }
+
+/* center text only */
+.section-center { text-align: center; }
+
+/* center horizontally + vertically with flexbox */
+.section-center-flex {
+  display: flex;
+  flex-direction: column; /* keep items stacked */
+  justify-content: center; /* vertical */
+  align-items: center;     /* horizontal */
+  text-align: center;      /* for text inside children */
+  min-height: 200px;       /* adjust as needed */
+}
+
 </style>
 </head>
 
@@ -158,9 +181,9 @@ img, video {
 
 <h1 style="margin-top: 2rem;">Order Approval and Permission</h1>
 
-<section id="nameEntrySection" style="margin-top: 3rem;">
+<section id="nameEntrySection"  class="section-center-flex" style="margin-top: 3rem;">
     <p style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.6rem;">
-        Please enter your name to find your order:
+        Please enter your name to view your order:
     </p>
 
     <input type="text" id="nameInput" placeholder="Your full name"
@@ -176,33 +199,38 @@ img, video {
     </p>
 </section>
 
-<section id="yourOrderSection" style="display:none;">
+<section id="yourOrderSection" class="section-center-flex" style="display:none;">
+    <hr class="divider">
     <h3 style="font-size: 3rem; font-weight: 700;">Your Order</h3>
-
+<hr class="divider">
     <h3 style="font-size: 3rem; font-weight: 700;">Organization:</h3>
-    <p>Columbus Power Elite Cheer</p>
+    <p style="font-size: 3rem; font-weight: 400;">Columbus Power Elite Cheer</p>
 
     <h3 style="font-size: 3rem; font-weight: 700;">Items:</h3>
-    <p>80 custom keychains</p>
+    <p style="font-size: 3rem; font-weight: 400;">custom keychains</p>
 
     <h3 style="font-size: 3rem; font-weight: 700;">Design Fee:</h3>
-    <p>Waived ($50 value)</p>
+    <p style="font-size: 3rem; font-weight: 400;">Waived ($50 value)</p>
 
-    <h3 style="font-size: 3rem; font-weight: 700;">Pricing:</h3>
-    <p>Bulk pricing applied</p>
-
-    <p><strong>Shipping:</strong> Waived (hand delivery)</p>
-</section>
-
-<section id="logoSection" style="display:none;">
+    <h3 style="font-size: 3rem; font-weight: 700;">Discount:</h3>
+    <p style="font-size: 3rem; font-weight: 400;">Bulk pricing applied</p>
+<hr class="divider">
+    <h3 style="font-size: 3rem; font-weight: 700;">Piece Price: <span style="font-weight: 400;">1.60</span></h3>
+    <p style="font-size: 3rem; font-weight: 700;">Quantity: <span style="font-weight: 400;">80</span></p>
+    <p style="font-size: 3rem; font-weight: 700;">SubTotal: <span style="font-weight: 400;">128.00</span></p>
+    <p style="font-size: 3rem; font-weight: 700;">Tax: <span style="font-weight: 400;">8.96</span></p>
+    <p style="font-size: 3rem; font-weight: 700;">Total: <span style="font-weight: 400;">136.96</span></p>
+    <p style="font-size: 3rem; font-weight: 700;">Shipping: <span style="font-weight: 400;">free local delivery</span></p>
+    <div id="logoSection" style="display:none;">
     <h2>Your Logo</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo.webp" type="image/webp">
         <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/logo-original.png" alt="Uploaded Logo">
     </picture>
+    </div>
 </section>
 
-<section id="detailsSection" style="display:none;">
+<section id="detailsSection" class="section-center-flex" style="display:none;">
     <h2>Details</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/notes.webp" type="image/webp">
@@ -210,51 +238,49 @@ img, video {
     </picture>
 </section>
 
-<section id="proofSection" style="display:none;">
+<section id="proofSection" class="section-center-flex" style="display:none;">
     <h2>Finished Proof</h2>
     <picture>
         <source srcset="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.webp" type="image/webp">
         <img src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/proof.png" alt="Finished Proof">
     </picture>
+    <hr class="divider">
 </section>
 
-<section id="invoiceSection" style="display:none;">
+<section id="invoiceSection" class="section-center-flex" style="display:none;">
     <h2>How would you like your invoice sent?</h2>
 
     <label class="big-text">
-        Text Message
+        Enter phone number for text:
         <input type="tel" id="invoice_phone" placeholder="Phone number">
     </label>
 
     <label class="big-text">
-        Email
+        Enter address for email:
         <input type="email" id="invoice_email" placeholder="Email address">
     </label>
 
-    <p class="small-note">Phone number or email required before continuing.</p>
-
+    <p class="small-note">Note: Phone number or email required before continuing.</p>
+    <hr class="divider">
     <button id="invoiceSubmitBtn" disabled
         style="margin-top: 3rem; font-size: 2.8rem; padding: 20px 30px; border-radius: 14px; background-color: black; color: white; border: none; cursor: pointer; font-weight: 800;">
         Save & Continue
     </button>
 </section>
 
-<section id="permission1" style="display:none;">
+<section id="permission1" class="section-center-flex" style="display:none;">
     <h2>Permission for This Order</h2>
 
     <label id="orderPermissionLabel" class="dimmed big-text">
         <input type="checkbox" id="order_permission" disabled>
-        By selecting this box, you are granting us permission to produce this order.
+            By selecting this box, you are granting us permission to use this logo/image in the manufacturing and testing of this product for fullfilment of this order.
     </label>
+    <p class="small-note">No additional rights to are being assumed.</p>
+   
 
-    <p class="small-note">Phone number or email required before approving.</p>
+ 
 
-    <div class="learn-more">
-        <a href="/contracts/learn-order-permission.html" target="_blank">Learn more</a>
-    </div>
-</section>
-
-<section id="mediaSection" style="display:none;">
+<section id="mediaSection" class="section-center-flex" style="display:none;">
     <img id="inUseImage" src="/organizations/columbus-power-elite/logos/columbus-power-elite-0001/in-use.png" alt="Product In Use">
 
     <video id="polaroidVideo" autoplay loop muted playsinline>
@@ -262,22 +288,22 @@ img, video {
     </video>
 </section>
 
-<section id="permission2" style="display:none;">
-    <h2>Optional Marketing Permission</h2>
-
+<section id="permission2" class="section-center-flex" style="display:none;">
+   <h2>Marketing Permission</h2>
+  <p style="font-size: 2.6rem; font-weight: 400;">Allow us to feature this logo/image for branding on additional products and earn your organization a percentage of the proceeds. With your consent, we will build an online store featuring these products. Your organization will earn a commision on all items sold using this logo/image.</p>
     <label class="big-text">
         <input type="checkbox" id="marketing_permission">
-        With your permission, we can set up a store for your organization with additional branded products.
+        Grant marketing and advertising permission..
     </label>
 
     <div class="learn-more">
-        <a href="/contracts/earnings-and-tiers.html" target="_blank">Earnings & Tiers</a><br>
-        <a href="/contracts/store-credit-policy.html" target="_blank">Store Credit Policy</a><br>
-        <a href="/contracts/learn-marketing-permission.html" target="_blank">How Store Setup Works</a>
+        <a href="/contracts/earnings-and-tiers.html" target="_blank">Learn more about optional marketing...</a><br>
     </div>
 </section>
 
-<button id="submitBtn">Submit Approval</button>
+<section class="section-center">
+    <button id="submitBtn">Submit Approval</button>
+</section>
 
 </main>
 
@@ -291,9 +317,7 @@ function smoothScrollTo(targetY, duration = 900) {
         if (!start) start = timestamp;
         const time = timestamp - start;
         const percent = Math.min(time / duration, 1);
-
         window.scrollTo(0, startY + diff * percent);
-
         if (time < duration) requestAnimationFrame(step);
     }
 
@@ -343,7 +367,6 @@ function checkInvoiceFields() {
     const phone = document.getElementById('invoice_phone').value.trim();
     const email = document.getElementById('invoice_email').value.trim();
     const btn = document.getElementById('invoiceSubmitBtn');
-
     btn.disabled = !(phone || email);
 }
 
@@ -353,12 +376,10 @@ document.getElementById('invoice_email').addEventListener('input', checkInvoiceF
 document.getElementById('invoiceSubmitBtn').addEventListener('click', () => {
     const phone = document.getElementById('invoice_phone').value.trim();
     const email = document.getElementById('invoice_email').value.trim();
-
     if (!phone && !email) return;
 
     const permissionSection = document.getElementById('permission1');
     permissionSection.style.display = 'block';
-
     scrollToSection('permission1', 900);
 });
 
@@ -398,7 +419,43 @@ function enableOrderPermission() {
 
 document.getElementById('invoice_phone').addEventListener('input', enableOrderPermission);
 document.getElementById('invoice_email').addEventListener('input', enableOrderPermission);
-</script>
 
+document.getElementById('submitBtn').addEventListener('click', async function (e) {
+    e.preventDefault();
+
+    const payload = {
+        name: document.getElementById('nameInput')?.value?.trim() || '',
+        phone: document.getElementById('invoice_phone')?.value?.trim() || '',
+        email: document.getElementById('invoice_email')?.value?.trim() || '',
+        organization: document.querySelector('#yourOrderSection h3 + p')?.textContent?.trim() || '',
+        marketingPermission: !!document.getElementById('marketing_permission')?.checked,
+        orderPermission: !!document.getElementById('order_permission')?.checked,
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        const res = await fetch('/api/approve-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await res.json();
+        console.log('Server response', result);
+
+        if (result.redirect) {
+            window.location.href = result.redirect;
+            return;
+        }
+
+        this.disabled = true;
+        this.textContent = 'Submitted';
+
+    } catch (err) {
+        console.error('Submit error', err);
+        alert('Submission failed — see console.');
+    }
+});
+</script>
 </body>
 </html>
